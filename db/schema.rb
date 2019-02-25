@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_191045) do
   create_table "hikes", force: :cascade do |t|
     t.string "photo"
     t.string "city"
-    t.string "length"
+    t.integer "length"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
