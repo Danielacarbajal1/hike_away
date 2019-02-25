@@ -1,2 +1,10 @@
 <h1>Hikes#index</h1>
-<p>Find me in app/views/hikes/index.html.erb</p>
+      <div class="search form-inline">
+        <%= form_tag hikes_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "input_large form-control",
+        placeholder: "Find a hike" %>
+         <%= select_tag :category, options_for_select([“Easy”, “Medium”, “Hard”], params[:category]), {:include_blank => ‘Ranking’, class: "form-control form-dropdown"}%>
+        <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
+        <% end %>
