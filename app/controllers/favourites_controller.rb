@@ -13,7 +13,7 @@ class FavouritesController < ApplicationController
   def destroy
     @favorite = Favorite.find(params[:id])
     @favorite.destroy
-    redirect_to hike_path(@favorite.hike)
+    redirect_to hike_path(@hike)
   end
 
   private
