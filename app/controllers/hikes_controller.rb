@@ -2,7 +2,7 @@ class HikesController < ApplicationController
     before_action :set_hike, only: [:show]
 
   def index
-    @hikes = Hikes.all
+    @hikes = Hike.all
   end
 
   def show
