@@ -1,4 +1,6 @@
 class FavouritesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def create
     @favorite = Favorite.new(favorite_params)
     @hike = Hike.find(params[:hike_id])
