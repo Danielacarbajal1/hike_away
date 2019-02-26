@@ -1,6 +1,8 @@
 class HikesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+
   before_action :set_hike, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
     if params[:query].present? || params[:category].present?
@@ -10,6 +12,15 @@ class HikesController < ApplicationController
     else
       @hikes = Hike.all
     end
+
+
+    @markers = @hikes.map do |hike|
+      {
+        lat: hike.latitude,
+        lng: hike.longitude
+      }
+    end
+
   end
 
   def show
