@@ -3,10 +3,11 @@ class HikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present? || params[:category].present?
+    if params[:query].present? || params[:category].present? || params[:city].present?
       hike_query = "name ILIKE :query OR description ILIKE :query"
       @hikes = Hike.where(hike_query, query: "%#{params[:query]}%")
       @hikes = @hikes.where("category ILIKE :category", category: "%#{params[:category]}%")
+      @hikes = Hike.near(params[:city], params[:distance] || 10, order: :distance)
     else
       @hikes = Hike.all
     end
@@ -16,21 +17,6 @@ class HikesController < ApplicationController
         lat: hike.latitude,
         lng: hike.longitude
       }
-    end
-  end
-
-  def city
-    @city = Hike.find(params[:city])
-    Geocode.search(“@city”)
-  end
-
-  def nearby
-    @location = request.location
-    if @location
-      @hikes = Hike.near(@location)
-    else
-      flash.now[:error] = "Location not available"
-      @hikes = Hike.all
     end
   end
 
