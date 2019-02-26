@@ -1,8 +1,6 @@
 class HikesController < ApplicationController
-
   before_action :set_hike, only: [:show]
   skip_before_action :authenticate_user!, only: [:index, :show]
-
 
   def index
     if params[:query].present? || params[:category].present?
@@ -13,14 +11,12 @@ class HikesController < ApplicationController
       @hikes = Hike.all
     end
 
-
-    @markers = @hikes.map do |hike|
-      {
-        lat: hike.latitude,
-        lng: hike.longitude
-      }
-    end
-
+    # @markers = @hikes.map do |hike|
+    #   {
+    #     lat: hike.latitude,
+    #     lng: hike.longitude
+    #   }
+    # end
   end
 
   def show
@@ -33,6 +29,6 @@ class HikesController < ApplicationController
   end
 
   def set_hike
-    @hike = Hike.find(params[:hike_id])
+    @hike = Hike.find(params[:id])
   end
 end

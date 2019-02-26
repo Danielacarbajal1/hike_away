@@ -1,6 +1,38 @@
-<h1>Hikes#show</h1>
-<p>Find me in app/views/hikes/show.html.erb</p>
-<%= @hikes.each do |hike| %>
-  <%= hike.name.capitalize %>
-  <%= hike.category.capitalize %>
-  <%= hike.description.capitalize %>
+<div class="container">
+  <div class="card-trip">
+    <%= cl_image_tag @hike.photo, height: 300, width: 400, crop: :fill if @hike.photo.present? %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @hike.name.capitalize %></h2>
+        <p>Category: <%= @hike.category.capitalize %></p>
+        <p><%= @hike.description.capitalize %></p>
+      </div>
+    </div>
+  <div class="container">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Favorites</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h1 class="modal-title">Add to favorites</h1>
+          </div>
+          <div class="modal-body">
+            <p>This will add the current hike to your favorites.</p>
+          </div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="modal-btn-fav">Confirm</button>
+        <button type="button" class="btn btn-primary" id="modal-btn-no">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="alert" role="alert" id="result" color="black"></div>
+  </div>
+</div>
