@@ -35,4 +35,12 @@
     </div>
     <div class="alert" role="alert" id="result" color="black"></div>
   </div>
+
+  <% @hike.reviews.each do |review| %>
+   <!--  <img src= <%= review.user.photo %>> -->
+    <p>First name: <%= review.user.first_name %></p>
+    <p>Last name: <%= review.user.last_name %></p>
+    <p>Comment: <%= review.content %></p>
+    <p>Start: <%= review.stars %></p>
+  <% end %>
 </div>
