@@ -8,7 +8,7 @@ class HikesController < ApplicationController
       hike_query = "name ILIKE :query OR description ILIKE :query"
       @hikes = Hike.where(hike_query, query: "%#{params[:query]}%")
       @hikes = @hikes.where("category ILIKE :category", category: "%#{params[:category]}%")
-      @hikes = Hike.near(params[:city], params[:distance] || 10)
+      @hikes = @hikes.near(params[:city], params[:distance] || 10)
     else
       @hikes = Hike.all
     end
