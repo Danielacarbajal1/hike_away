@@ -3,13 +3,7 @@ class HikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present? || params[:category].present?
-      hike_query = "name ILIKE :query OR description ILIKE :query"
-      @hikes = Hike.where(hike_query, query: "%#{params[:query]}%")
-      @hikes = @hikes.where("category ILIKE :category", category: "%#{params[:category]}%")
-    else
-      @hikes = Hike.all
-    end
+    @hikes = Hike.where.not(latitude: nil, longitude: nil)
 
     @markers = @hikes.map do |hike|
       {
