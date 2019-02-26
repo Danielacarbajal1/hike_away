@@ -35,4 +35,9 @@
     </div>
     <div class="alert" role="alert" id="result" color="black"></div>
   </div>
+
+  <% @hike.reviews.each do |review| %>
+    <p><%= review.user_id %></p>
+    <p><%= review.hike_id %></p>
+  <% end %>
 </div>
