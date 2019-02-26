@@ -12,5 +12,4 @@ class PagesController < ApplicationController
   def profile
     @favourites = favourite.where(user_id: current_user)
   end
-
 end

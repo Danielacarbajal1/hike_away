@@ -9,6 +9,7 @@
         <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
       <% end %>
       <%= @hikes.each do |hike| %>
+      <%= link_to (hike_path(hike.id)) do%>
   <%= hike.name.capitalize %>
   <%= hike.category.capitalize %>
   <%= hike.description.capitalize %>
