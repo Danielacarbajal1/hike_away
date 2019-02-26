@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_191045) do
 
   create_table "hikes", force: :cascade do |t|
     t.string "photo"
+    t.string "category"
     t.string "city"
     t.integer "length"
     t.string "description"

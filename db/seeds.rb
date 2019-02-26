@@ -10,6 +10,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/sam-beaup-704520-unsplash.jpg",
   name: "Mount Albert",
   city: "Gaspésie National Park",
+  category: "Advanced",
   length: 5,
   km: 11.4,
   description: "Mont Albert is a mountain in the Chic-Choc range in the Gaspésie National Park in the Gaspé Peninsula of eastern Quebec, Canada.
@@ -20,6 +21,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg",
   name: "Mount Swan Lake",
   city: "Grand Jardins National Park",
+  category: "Intermediate",
   length: 5,
   km: 11.4,
   description: "Mount Swan Lake is a mountain in Quebec (Canada) part of the Laurentians.
@@ -30,6 +32,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4725-Modifier.jpg",
   name: "The chouenne",
   city: "Grand Jardins National Park",
+  category: "Intermediate",
   length: 2,
   km: 4.8,
   description: "Trail giving access to a summit of 730 m of altitude.
@@ -41,6 +44,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121149/hautes-gorges.jpg",
   name: "The Acropolis of the Draveurs",
   city: "Park of the high gorges of the Malbaie river",
+  category: "Advanced",
   length: 5,
   km: 10.4,
   description: "An essential hike that leads to a breathtaking view over the Malbaie River.
@@ -52,6 +56,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121152/ura-druchuk-1144555-unsplash.jpg",
   name: "Sentier de l’éperon",
   city: "Jacques Cartier National Park",
+  category: "Intermediate",
   length: 2,
   km: 5.4,
   description: "Rub shoulders with the meandering river to shoulder.
@@ -62,6 +67,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_6715-2.jpg",
   name: "Sentier des loups",
   city: "Jacques Cartier National Park",
+  category: "Advanced",
   length: 3,
   km: 11,
   description: "Breathtaking! See the most striking fractures massive Laurentians: the spectacular valleys of the Jacques Cartier and Sautauriski"
@@ -71,6 +77,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2377.jpg",
   name: "The manitou",
   city: "Mont Tremblant National Park",
+  category: "Easy",
   length: 45,
   km: 0.6,
   description: "Trail for all skill levels Spectacular view from 360°Observation Tower"
@@ -80,6 +87,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2370.jpg",
   name: "Hiking Soaring",
   city: "Mont Tremblant National Park",
+  category: "Intermediate",
   length: 1,
   km: 6.7,
   description: "The sector of Pimbina offers, it seems, almost always better snow conditions and more perceptible tranquility than in the sector of the Devil.
@@ -90,6 +98,7 @@ Hike.create!(
   photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_5049-5.jpg",
   name: "Hiking Centennial",
   city: "Mont Tremblant  National Park",
+  category: "Advanced",
   length: 5,
   km: 9.5,
   description: "Centennial Park Loop Trail is a 2.4 kilometer lightly trafficked loop trail located near Thunder Bay, Ontario, Canada that offers the chance to see wildlife.
@@ -100,6 +109,7 @@ Hike.create!(
   photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/jacalyn-beales-294154-unsplash.jpg",
   name: "Mont Saint Joseph",
   city: "Mount Megantic National Park",
+  category: "Intermediate",
   length: 5,
   km: 9.4,
   description: "Mont Saint-Joseph is located in the beautiful Mont-Mégantic National Park, near the village of Notre-Dame-des-Bois in the Eastern Townships.
@@ -110,6 +120,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_4392-2.jpg",
   name: "The Mont Mégantic",
   city: "Mount Megantic National Park",
+  category: "Intermediate",
   length: 7,
   km: 10.7,
   description: "Mont Mégantic is a monadnock located in Québec, Canada, about 15 km north of the border between Québec and the U.S. states of Maine and New Hampshire.
@@ -121,6 +132,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121150/edward-koorey-767847-unsplash.jpg",
   name: "Sentier Les Caps",
   city: "Saguenay Fjord National Park",
+  category: "Advanced",
   length: 5,
   km: 10.2,
   description: "The eastern side of Eternity Bay remains the well-kept secret of hikers.
@@ -132,6 +144,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2380.jpg",
   name: "Sentier des Chutes",
   city: "Saguenay Fjord National Park",
+  category: "Easy",
   length: 3,
   km: 5,
   description: "The White Falls Trail runs through a deciduous forest dotted with tall white pines.
@@ -142,6 +155,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/luc-tribolet-748526-unsplash.jpg",
   name: "Calvaire d'Oka",
   city: " Oka National Park",
+  category: "Easy",
   length: 1,
   km: 4.4,
   description: "The Calvary of Oka is a way of cross formed of seven towers erected between 1740 and 1742.
@@ -152,6 +166,7 @@ Hike.create!(
   photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121177/IMG_1435-2.jpg",
   name: "L'Étang Fer de Lance",
   city: "Mount Orford National Park",
+  category: "Easy",
   length: 1,
   km: 3.5,
   description: "A pleasant walk in a maple grove leading you to a belvedere offering a superb panorama of the Mont Orford massif and the pond Fer-de-Lance."
