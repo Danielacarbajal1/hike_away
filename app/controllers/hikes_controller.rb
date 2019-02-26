@@ -2,7 +2,7 @@ class HikesController < ApplicationController
   before_action :set_hike, only: [:show]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-
+  def index
     @hikes = Hike.where.not(latitude: nil, longitude: nil)
     if params[:query].present? || params[:category].present? || params[:city].present?
       hike_query = "name ILIKE :query OR description ILIKE :query"
