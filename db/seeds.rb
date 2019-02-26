@@ -7,18 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
+Review.destroy_all
 User.destroy_all
 Hike.destroy_all
-Review.destroy_all
 
-user = User.create!(
-  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/sam-beaup-704520-unsplash.jpg",
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  address: Faker::Address.street_address,
-  password: Faker::Internet.password(10, 20)
-)
+4.times do
+  userOne = User.create!(
+    photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/sam-beaup-704520-unsplash.jpg",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    address: Faker::Address.street_address,
+    password: Faker::Internet.password(10, 20)
+  )
+end
 
 hike = Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/sam-beaup-704520-unsplash.jpg",
@@ -186,9 +188,19 @@ Hike.create!(
   description: "A pleasant walk in a maple grove leading you to a belvedere offering a superb panorama of the Mont Orford massif and the pond Fer-de-Lance."
 )
 
-review = Review.create!(
-  content: "content way",
-  stars: rand(1..5),
-  user_id: user.id,
-  hike_id: hike.id
-)
+reviews_content = [
+  "Welcome",
+  "Hello",
+  "Bonjour",
+  "Welcome",
+  "Hello"
+]
+
+50.times do
+  Review.create!(
+    stars: rand(1..5),
+    content: reviews_content[rand(0..4)],
+    user_id: User.order("RANDOM()").first.id,
+    hike_id: Hike.order("RANDOM()").first.id
+  )
+end
