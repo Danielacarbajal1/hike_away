@@ -19,6 +19,21 @@ class HikesController < ApplicationController
     end
   end
 
+  def city
+    @city = Hike.find(params[:city])
+    Geocode.search(“@city”)
+  end
+
+  def nearby
+    @location = request.location
+    if @location
+      @hikes = Hike.near(@location)
+    else
+      flash.now[:error] = "Location not available"
+      @hikes = Hike.all
+    end
+  end
+
   def show
   end
 
