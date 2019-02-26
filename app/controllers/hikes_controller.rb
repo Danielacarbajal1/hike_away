@@ -10,9 +10,7 @@ class HikesController < ApplicationController
     else
       @hikes = Hike.all
     end
-
     @hikes = Hike.where.not(latitude: nil, longitude: nil)
-
     @markers = @hikes.map do |hike|
       {
         lat: hike.latitude,
