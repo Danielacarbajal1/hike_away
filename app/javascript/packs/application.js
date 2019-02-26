@@ -1,5 +1,9 @@
 import "bootstrap";
-// import Maps from 'gmaps/gmaps.js';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+import { initMapbox } from '../plugins/init_mapbox';
+
+initMapbox();
 
 var modalConfirm = function(callback){
 
@@ -25,3 +29,4 @@ modalConfirm(function(confirm){
     $("#result").html("Cancelled");
   }
 });
+

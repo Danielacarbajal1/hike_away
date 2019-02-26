@@ -1,3 +1,7 @@
+<head>
+  <link href=’https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel=’stylesheet’ />
+</head>
+
 <h1>Hikes#index</h1>
       <div class="search form-inline">
         <%= form_tag hikes_path, method: :get do %>
@@ -6,13 +10,43 @@
         class: "input_large form-control",
         placeholder: "Find a hike" %>
          <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Ranking", class: "form-control form-dropdown"}%>
+        <%= label :city, "Search hikes near : " %>
+        <%= text_field_tag :city, params[:city] %>
+        <%= label :distance, "Distance : " %>
+        <%= text_field_tag :distance, params[:distance] %>
         <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
       <% end %>
-      <%= @hikes.each do |hike| %>
-      <%= link_to (hike_path(hike.id)) do%>
-  <%= hike.name.capitalize %>
-  <%= hike.category.capitalize %>
-  <%= hike.description.capitalize %>
-<% end %>
-
-<div id="map" data-markers= <%= @markers.to_json %>>
+<div class="main-container map-container">
+  <div class="card-container-with-map">
+      <% @hikes.each do |hike| %>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <%=link_to(hike_path(hike.id)) do %>
+        <div class="card">
+          <%= cl_image_tag hike.photo, height: 185, width: 250, crop: :fill %>
+          <div class="card-block">
+              <%= hike.distance_to(params[:city]).to_i %> Km from your location
+            <h4 class="card-title"><%= hike.name.capitalize %></h4>
+            <div class="meta">
+              <h6><%= hike.category.capitalize %></h6>
+            </div>
+            <div class="card-text"><%= hike.description.capitalize %>
+            </div>
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+      <div class="col-md-6">
+        <div
+          id="map"
+          style="width: 100%;
+          height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        >
+      </div>
+    </div>
+  </div>
+</div>
