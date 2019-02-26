@@ -37,7 +37,11 @@
   </div>
 
   <% @hike.reviews.each do |review| %>
-    <p><%= review.user_id %></p>
-    <p><%= review.hike_id %></p>
+   <!--  <img src= <%= review.user.photo %>> -->
+    <p>First name: <%= review.user.first_name %></p>
+    <p>Last name: <%= review.user.last_name %></p>
+    <p>Comment: <%= review.content %></p>
+    <p>Start: <%= review.stars %></p>
+
   <% end %>
 </div>
