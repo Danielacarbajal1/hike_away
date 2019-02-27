@@ -17,7 +17,9 @@ class HikesController < ApplicationController
     @markers = @hikes.map do |hike|
       {
         lat: hike.latitude,
-        lng: hike.longitude
+        lng: hike.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { hike: hike }),
+        image_url: helpers.asset_url(hike.photo)
       }
     end
   end
