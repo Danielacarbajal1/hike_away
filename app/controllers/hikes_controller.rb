@@ -4,13 +4,15 @@ class HikesController < ApplicationController
 
   def index
     @hikes = Hike.where.not(latitude: nil, longitude: nil)
-    if params[:query].present? || params[:category].present? || params[:city].present?
+    if params[:query].present?
       hike_query = "name ILIKE :query OR description ILIKE :query"
       @hikes = Hike.where(hike_query, query: "%#{params[:query]}%")
-      @hikes = @hikes.where("category ILIKE :category", category: "%#{params[:category]}%")
-      @hikes = @hikes.near(params[:city], params[:distance] || 10)
-    else
-      @hikes = Hike.all
+    end
+    @hikes = @hikes.where("category ILIKE :category", category: "%#{params[:category]}%") if params[:category].present?
+    if params[:city].present? && params[:distance].present?
+      @hikes = @hikes.near(params[:city], params[:distance].to_i.positive? ? params[:distance].to_i : 0)
+    elsif params[:city].present?
+      @hikes = @hikes.near(params[:city], 250)
     end
     @markers = @hikes.map do |hike|
       {

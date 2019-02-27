@@ -33,7 +33,9 @@
         <div class="card">
           <%= cl_image_tag hike.photo, height: 185, width: 250, crop: :fill %>
           <div class="card-block">
+            <% if params[:city].present?  %>
               <%= hike.distance_to(params[:city]).to_i %> Km from your location
+              <% end %>
             <h4 class="card-title"><%= hike.name.capitalize %></h4>
             <div class="meta">
               <h6><%= hike.category.capitalize %></h6>
