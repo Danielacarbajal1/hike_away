@@ -12,14 +12,15 @@ User.destroy_all
 Hike.destroy_all
 
 4.times do
-  userOne = User.create!(
-    photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/sam-beaup-704520-unsplash.jpg",
+  userOne = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     address: Faker::Address.street_address,
     password: Faker::Internet.password(10, 20)
   )
+  userOne.remote_photo_url = Cloudinary::Utils.cloudinary_url "sam-beaup-704520-unsplash.jpg"
+  userOne.save!
 end
 
 hike = Hike.create!(
