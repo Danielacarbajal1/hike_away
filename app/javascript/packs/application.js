@@ -30,3 +30,26 @@ modalConfirm(function(confirm){
   }
 });
 
+var modalConfirm = function(callback){
+
+  $("#btn-confirmdir").on("click", function(){
+    $("#myDirections").modal('show');
+  });
+
+  $("#modal-btn-directions").on("click", function(){
+    callback(true);
+    $("#myDirections").modal('hide');
+  });
+
+  $("#modal-btn-directions-close").on("click", function(){
+    callback(false);
+    $("#myDirections").modal('hide');
+  });
+};
+modalConfirm(function(confirmdir){
+  if(confirmdir){
+    $("#result2").html("This trip has been added to your favorites");
+  }else{
+    $("#result2").html("Cancelled");
+  }
+});
