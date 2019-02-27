@@ -37,6 +37,7 @@
             <% if params[:city].present?  %>
               <%= hike.distance_to(params[:city]).to_i %> Km from your location
               <% end %>
+              <% end %>
             <h4 class="card-title"><%= hike.name.capitalize %></h4>
             <div class="meta">
               <h6><%= hike.category.capitalize %></h6>
@@ -47,7 +48,6 @@
           <div class="card-footer">
           </div>
         </div>
-        <% end %>
       </div>
       <% end %>
     </div>
