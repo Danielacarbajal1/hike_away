@@ -1,16 +1,7 @@
 <h1>Pages#home</h1>
       <div class="search form-inline">
         <%= form_tag hikes_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "input_large form-control",
-        placeholder: "Find a hike" %>
-         <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Ranking", class: "form-control form-dropdown"}%>
         <%= label :city, "Search hikes near : " %>
         <%= text_field_tag :city, params[:city] %>
-        <%= label :distance, "Distance : " %>
-        <%= text_field_tag :distance, params[:distance] %>
-        <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
-
   <%= submit_tag "Search" %>
         <% end %>
