@@ -48,8 +48,8 @@ var modalConfirm = function(callback){
 };
 modalConfirm(function(confirmdir){
   if(confirmdir){
-    $("#result2").html("This trip has been added to your favorites");
+    $("#result2");
   }else{
-    $("#result2").html("Cancelled");
+    $("#result2");
   }
 });
