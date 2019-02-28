@@ -24,7 +24,7 @@ var modalConfirm = function(callback){
 
 modalConfirm(function(confirm){
   if(confirm){
-    $("#result").html("This trip has been added to your favorites");
+    $("#result").html("This trip has been added to your favourites");
   }else{
     $("#result").html("Cancelled");
   }
@@ -150,3 +150,8 @@ modalConfirm(function(confirmdir){
   }
 });
 
+const heart = document.getElementById("show-flaticon")
+heart.addEventListener('click', function (){
+  heart.classList.toggle("hidden")
+  document.querySelector(".show-icon").insertAdjacentHTML = ("beforeend", '<%= image_tag("like.svg") %>')
+  });

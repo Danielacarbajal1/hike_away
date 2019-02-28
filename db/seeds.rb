@@ -158,7 +158,7 @@ Hike.create!(
   length: 5,
   km: 9.4,
   description: "Mont Saint-Joseph is located in the beautiful Mont-Mégantic National Park, near the village of Notre-Dame-des-Bois in the Eastern Townships.
-  Although this park is rather known to the public by its famous astronomical observatory located at the top of Mont Mégantic, it nonetheless remains a favorite spot for hiking with a network of more than 30 km of hiking trails ."
+  Although this park is rather known to the public by its famous astronomical observatory located at the top of Mont Mégantic, it nonetheless remains a favourite spot for hiking with a network of more than 30 km of hiking trails ."
 )
 
 Hike.create!(
