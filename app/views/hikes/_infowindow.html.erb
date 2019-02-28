@@ -1,6 +1,8 @@
- <%= cl_image_tag hike.photo, height: 200, width: 200, crop: :fill %><br>
+ <center>
+  <%= cl_image_tag hike.photo, height: 200, width: 200, crop: :fill %><br>
  <h2><%= hike.name %></h2><br>
 <%= hike.description %><br>
 <%=link_to(hike_path(hike.id)) do %>
 Check out the path
  <% end %>
+</center>
