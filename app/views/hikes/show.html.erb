@@ -9,7 +9,12 @@
     <p>What to bring</p>
   </div>
   <div class="show-icon">
+
+    <% if current_user.favourites.find_by(hike_id: @hike.id) %>
+    <%= image_tag("like.svg", :class => "show-flaticon") %>
+    <% else %>
     <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
+    <% end %>
   </div>
 </div>
 <div class="show-description">
