@@ -26,11 +26,11 @@ end
 user = User.new(
   first_name: "Claire",
   last_name: "Skies",
-  email: "clairskies@sharklasers.com",
+  email: "claireskies@sharklasers.com",
   address: "5333 Casgrain",
   password: "passwordcanbechangedlater"
   )
-  user.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-gardner-74378-unsplash"
+  user.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-gardner-74378-unsplash.jpg"
   user.save!
 
 hike = Hike.create!(
