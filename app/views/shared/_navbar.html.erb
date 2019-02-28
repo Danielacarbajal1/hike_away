@@ -6,12 +6,6 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <%= link_to "My Favorites", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Hikes", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -21,15 +15,14 @@
               <%= image_tag(@picture_user) %>
             <% end %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <%= link_to page_path (:id) do %>
+                <%= t(".profile", default: "Profile") %>
               <% end %>
-            </li>
             <li>
               <li><% if user_signed_in? %>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-                <% end %>
+                <%= t(".sign_out", default: "Log out") %>
+              <% end %>
               <% end %>
             </li>
           </ul>
