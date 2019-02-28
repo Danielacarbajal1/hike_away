@@ -1,11 +1,17 @@
 class FavouritesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  def create
-    @favorite = Favorite.new(favorite_params)
+  def new
+    @favourite = Favourite.new
     @hike = Hike.find(params[:hike_id])
-    @favorite.hike = @hike
-    if @favorite.save
+  end
+
+  def create
+    @favourite = Favourite.new
+    @hike = Hike.find(params[:hike_id])
+    @favourite.hike = @hike
+    @favourite.user = current_user
+    if @favourite.save
       redirect_to hike_path(@hike)
     else
       render :new
@@ -13,14 +19,14 @@ class FavouritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find(params[:id])
-    @favorite.destroy
+    @favourite = Favourite.find(params[:id])
+    @favourite.destroy
     redirect_to hike_path(@hike)
   end
 
   private
 
-  def favorite_params
-    params.require(:favorite).permit(:user_id, :hike_id)
+  def favourite_params
+    params.require(:favourite).permit(:hike_id)
   end
 end

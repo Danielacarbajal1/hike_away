@@ -9,7 +9,7 @@
     <p>What to bring</p>
   </div>
   <div class="show-icon">
-    <%=image_tag("likee.svg", class: "show-flaticon") %>
+    <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
   </div>
 </div>
 <div class="show-description">
@@ -112,7 +112,7 @@
 
 
   <% @hike.reviews.each do |review| %>
-   <!--  <img src= <%= review.user.photo %>> -->
+  <img src= <%= review.user.photo %>
     <p>First name: <%= review.user.first_name %></p>
     <p>Last name: <%= review.user.last_name %></p>
     <p>Comment: <%= review.content %></p>

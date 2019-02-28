@@ -11,27 +11,45 @@ Review.destroy_all
 User.destroy_all
 Hike.destroy_all
 
-4.times do
-  userOne = User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    address: Faker::Address.street_address,
-    password: "000000"
-  )
-  userOne.remote_photo_url = Cloudinary::Utils.cloudinary_url "sam-beaup-704520-unsplash.jpg"
-  userOne.save!
-end
+mainUser = User.new(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  address: Faker::Address.street_address,
+  password: "000000"
+)
+  mainUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "sam-beaup-704520-unsplash.jpg"
+  mainUser.save!
 
-user = User.new(
-  first_name: "Claire",
-  last_name: "Skies",
-  email: "claireskies@sharklasers.com",
-  address: "5333 Casgrain",
-  password: "passwordcanbechangedlater"
-  )
-  user.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-gardner-74378-unsplash.jpg"
-  user.save!
+seanUser = User.new(
+  first_name: "Sean",
+  last_name: "Kong",
+  email: "seankong@gmail.com",
+  address: "123 rue des forges H3H 2S4 Paris, France",
+  password: "000000"
+)
+ seanUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "sean-kong-291651-unsplash.jpg"
+ seanUser.save!
+
+michaelUser = User.new(
+  first_name: "Micheal",
+  last_name: "Frattaroli",
+  email: "michealfrattaroli@gmail.com",
+  address: "5333 Casgrain 2G2 K9K, Montréal, Canada",
+  password: "000000"
+)
+  michaelUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "michael-frattaroli-234665-unsplash.jpg"
+  michaelUser.save!
+
+joeUser = User.new(
+  first_name: "Joe",
+  last_name: "Robles",
+  email: "joerobles@gmail.com",
+  address: "1000 avenue Amesbury F8H 1J9, Pondichery, Inde",
+  password: "000000"
+)
+  joeUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-robles-602630-unsplash.jpg"
+  joeUser.save!
 
 hike = Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/sam-beaup-704520-unsplash.jpg",
@@ -140,7 +158,7 @@ Hike.create!(
   length: 5,
   km: 9.4,
   description: "Mont Saint-Joseph is located in the beautiful Mont-Mégantic National Park, near the village of Notre-Dame-des-Bois in the Eastern Townships.
-  Although this park is rather known to the public by its famous astronomical observatory located at the top of Mont Mégantic, it nonetheless remains a favorite spot for hiking with a network of more than 30 km of hiking trails ."
+  Although this park is rather known to the public by its famous astronomical observatory located at the top of Mont Mégantic, it nonetheless remains a favourite spot for hiking with a network of more than 30 km of hiking trails ."
 )
 
 Hike.create!(
