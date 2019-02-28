@@ -24,7 +24,7 @@ var modalConfirm = function(callback){
 
 modalConfirm(function(confirm){
   if(confirm){
-    $("#result").html("This trip has been added to your favorites");
+    $("#result").html("This trip has been added to your favourites");
   }else{
     $("#result").html("Cancelled");
   }

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :hikes, only: [:index, :show] do
     resources :reviews, only: [:new, :index, :create, :edit, :update, :show, :destroy]
   end
-  resources :favorites, only: [ :create, :delete]
+  resources :favourites, only: [ :create, :delete]
   resources :pages
 end
