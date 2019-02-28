@@ -51,6 +51,16 @@ joeUser = User.new(
   joeUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-robles-602630-unsplash.jpg"
   joeUser.save!
 
+claireUser = User.new(
+  first_name: "Claire",
+  last_name: "Skies",
+  email: "claireskies@sharklasers.com",
+  address: "5333 Casgrain 2G2 K9K, Montréal, Canada",
+  password: "passwordcanbechangedlater"
+)
+  claireUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-gardner-74378-unsplash.jpg"
+  claireUser.save!
+
 hike = Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/sam-beaup-704520-unsplash.jpg",
   name: "Mount Albert",
