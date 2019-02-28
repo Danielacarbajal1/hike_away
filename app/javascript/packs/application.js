@@ -52,77 +52,79 @@ console.log(counter)
 shoes.addEventListener('click', function () {
   if (shoes.checked) {
     // var progressShoes = document.getElementById("progress")
-    count++
+    count = count + 20
     console.log("The shoes is checked");
 
    } else {
     // var dontProgressShoes = document.getElementById("dontProgress")
-    count--
+    count = count - 20
     console.log("The shoes is not checked");
   }
-  document.getElementById("dontProgress").style.width = `${count * 20}%`
-  counter.insertAdjacentHTML("beforeend", `${count * 20}%`)
+  document.getElementById("dontProgress").style.width = `${count}%`
+  counter.innerHTML = `${count}%`
 });
 
 water.addEventListener('click', function () {
   if (water.checked) {
     // var progressWater = document.getElementById("progress")
-    count++
+    count = count + 20
     console.log("Water is checked")
 
   } else {
     // var dontProgressWater = document.getElementById("dontProgress")
-    count--
+    count = count - 20
     console.log("Water is not checked ")
   }
-  document.getElementById("dontProgress").style.width = `${count * 20}%`
-  counter.insertAdjacentHTML("beforeend", `${count * 20}%`)
+  document.getElementById("dontProgress").style.width = `${count}%`
+  counter.innerHTML = `${count}%`
 });
 
 food.addEventListener('click', function () {
   if (food.checked) {
     // var progressFood = document.getElementById("progress")
-    count++
+    count = count + 20
     console.log("Food is checked")
 
   } else {
     // var dontProgressFood = document.getElementById("dontProgress")
-    count--
+    count = count - 20
     console.log("Food is not checked")
   }
-  document.getElementById("dontProgress").style.width = `${count * 20}%`
-  counter.insertAdjacentHTML("beforeend", `${count * 20}%`)
+  document.getElementById("dontProgress").style.width = `${count}%`
+  counter.innerHTML = `${count}%`
 });
 
 camera.addEventListener('click', function () {
   if (camera.checked) {
     // var progressCamera = document.getElementById("progress")
-    count++
+    count = count + 20
     console.log("Camera is checked")
 
   } else {
     // var dontProgressCamera = document.getElementById("dontProgress")
-    count--
+    count = count - 20
     console.log("Camera is not checked")
   }
-  document.getElementById("dontProgress").style.width = `${count * 20}%`
-  counter.insertAdjacentHTML("beforeend", `${count * 20}%`)
+  document.getElementById("dontProgress").style.width = `${count}%`
+  counter.innerHTML = `${count}%`
 });
 
 date.addEventListener('click', function () {
   if (date.checked) {
     // var progressDate = document.getElementById("progress")
-    count++
+    count = count + 20
     console.log("Your date is checked")
 
   } else {
     // var dontProgressDate = document.getElementById("dontProgress")
-    count--
+    count = count - 20
     console.log("Your date is not checked")
   }
-  document.getElementById("dontProgress").style.width = `${count * 20}%`
-  counter.insertAdjacentHTML("beforeend", `${count * 20}%`)
+  document.getElementById("dontProgress").style.width = `${count}%`
+  counter.innerHTML = `${count}%`
 });
+  console.log(counter)
+  counter.innerHTML = `${count}%`
 
 var modalConfirm = function(callback){
 
