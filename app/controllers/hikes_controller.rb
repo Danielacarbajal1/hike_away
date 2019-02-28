@@ -25,7 +25,7 @@ class HikesController < ApplicationController
   end
 
   def show
-    @favourites = Favourite.new
+    @favourite = Favourite.new
   end
 
   private
