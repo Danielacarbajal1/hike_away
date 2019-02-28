@@ -1,0 +1,47 @@
+.container {
+  margin: 0 auto;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.hike-photo {
+  position: relative;
+  margin-top: 15px;
+}
+
+.hike-name {
+  position: absolute;
+  left: -15px;
+  top: 150px;
+  background-color: #061D2B;
+  padding: 3px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.hike-icon {
+  height: 20px;
+  position: relative;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  color: black;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  display: flex;
+}
+
+.hike-infos {
+  margin-top: 10px;
+}

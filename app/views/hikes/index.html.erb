@@ -26,33 +26,32 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         >
       </div>
-<div class="main-container map-container">
-  <div class="card-container-with-map">
+
+    <div class="container">
       <% @hikes.each do |hike| %>
-      <div class="col-sm-12 col-md-6 col-lg-6">
         <%=link_to(hike_path(hike.id)) do %>
-        <div class="card">
-          <%= cl_image_tag hike.photo, height: 185, width: 250, crop: :fill %>
-          <div class="card-block">
-            <% if params[:city].present?  %>
-              <%= hike.distance_to(params[:city]).to_i %> Km from your location
-              <% end %>
-              <% end %>
-            <h4 class="card-title"><%= hike.name.capitalize %></h4>
-            <div class="meta">
-              <h6><%= hike.category.capitalize %></h6>
-            </div>
-            <div class="card-text"><%= hike.description.capitalize %>
-            </div>
-          </div>
-          <div class="card-footer">
-          </div>
+        <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <%= cl_image_tag(hike.photo, height: 250, width: 350, crop: :fill, class: "hike-photo") %>
+          <h4 class="hike-name"><%= hike.name.capitalize %></h4>
+          <div class="hike-infos">
+          <ul>
+            <li>
+            <%=image_tag("trekking.svg", class: "hike-icon") %> <span><%= hike.category.capitalize %></span>
+            </li>
+            <li>
+            <%=image_tag("clock.svg", class: "hike-icon") %> <span><%= hike.length %>hrs</span>
+            </li>
+            <li>
+            <%=image_tag("distance.svg", class: "hike-icon") %><span><%= hike.km %>km</span>
+            </li>
+            </ul>
+            <% end %>
+          <% end %>
         </div>
       </div>
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
 <body>
 
 </body>

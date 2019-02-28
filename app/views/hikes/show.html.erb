@@ -1,14 +1,26 @@
+<div class="box-blue"></div>
+<div class="show-name"><%= @hike.name.capitalize %></div>
+<%= cl_image_tag(@hike.photo, crop: :fill, class: "show-photo") if @hike.photo.present? %>
+<div class="show-info">
+  <div class="show-category">
+    <p><%= @hike.city %></p>
+    <p><%= @hike.length %>hrs</p>
+    <p><%= @hike.km %>km</p>
+    <p>What to bring</p>
+  </div>
+  <div class="show-icon">
+    <%=image_tag("likee.svg", class: "show-flaticon") %>
+  </div>
+</div>
+<div class="show-description">
+  <p><%= @hike.description.capitalize %></p>
+</div>
+
+
+
+
 <div class="container">
   <div class="card-trip">
-    <%= cl_image_tag @hike.photo, height: 300, width: 400, crop: :fill if @hike.photo.present? %>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= @hike.name.capitalize %></h2>
-        <p>Category: <%= @hike.category.capitalize %></p>
-        <p><%= @hike.description.capitalize %></p>
-      </div>
-    </div>
-  <div class="container">
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Favorites</button>
 
     <!-- Modal -->
@@ -34,7 +46,12 @@
       </div>
     </div>
     <div class="alert" role="alert" id="result" color="black"></div>
-  </div>
+
+<div class="review-card">
+
+</div>
+
+
 
   <% @hike.reviews.each do |review| %>
    <!--  <img src= <%= review.user.photo %>> -->
