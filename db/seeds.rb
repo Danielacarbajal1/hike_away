@@ -200,11 +200,11 @@ Hike.create!(
 )
 
 reviews_content = [
-  "Welcome",
-  "Hello",
-  "Bonjour",
-  "Welcome",
-  "Hello"
+  "The hike was amazing! The view was breathtaking",
+  "Didn't like it so much, but maybe it was because of the weather",
+  "Amazing hike! Definitely recommend doing it!",
+  "Not so bad",
+  "Will hike again!"
 ]
 
 50.times do
