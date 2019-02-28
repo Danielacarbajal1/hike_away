@@ -1,7 +1,20 @@
+
+<div class="container-home">
+<div class="banner-home">
+
+
 <h1>Hike Away</h1>
-      <div class="search form-inline">
-        <%= form_tag hikes_path, method: :get do %>
-        <%= label :city, "Search hikes near : " %>
-        <%= text_field_tag :city, params[:city] %>
-  <%= submit_tag "Search" %>
-        <% end %>
+<h2>YOUR MOUNTAIN GUIDE</h2>
+
+</div>
+
+  <div class="search form-inline">
+    <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
+    <%=image_tag("location.svg", class: "location-icon") %>
+    <%= text_field_tag( :city, params[:city], class: "search-home", placeholder: "City")%>
+  </div>
+    <div class="btn-home">
+      <%= submit_tag("Explore", class: "explore-btn-home")  %>
+      <% end %>
+    </div>
+</div>
