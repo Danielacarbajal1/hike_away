@@ -30,6 +30,7 @@ modalConfirm(function(confirm){
   }
 });
 
+
 // event listener for each checkbox
 // on click, IF the checkbox is checked
 // get the style of the progress bar
@@ -123,12 +124,27 @@ date.addEventListener('click', function () {
   counter.insertAdjacentHTML("beforeend", `${count * 20}%`)
 });
 
+var modalConfirm = function(callback){
 
+  $("#btn-confirmdir").on("click", function(){
+    $("#myDirections").modal('show');
+  });
 
+  $("#modal-btn-directions").on("click", function(){
+    callback(true);
+    $("#myDirections").modal('hide');
+  });
 
-
-
-
-
-
+  $("#modal-btn-directions-close").on("click", function(){
+    callback(false);
+    $("#myDirections").modal('hide');
+  });
+};
+modalConfirm(function(confirmdir){
+  if(confirmdir){
+    $("#result2");
+  }else{
+    $("#result2");
+  }
+});
 
