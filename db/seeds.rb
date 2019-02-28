@@ -17,7 +17,7 @@ Hike.destroy_all
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     address: Faker::Address.street_address,
-    password: Faker::Internet.password(10, 20)
+    password: "000000"
   )
   userOne.remote_photo_url = Cloudinary::Utils.cloudinary_url "sam-beaup-704520-unsplash.jpg"
   userOne.save!
@@ -207,7 +207,7 @@ reviews_content = [
   "Hello"
 ]
 
-50.times do
+30.times do
   Review.create!(
     stars: rand(1..5),
     content: reviews_content[rand(0..4)],
@@ -215,3 +215,10 @@ reviews_content = [
     hike_id: Hike.order("RANDOM()").first.id
   )
 end
+
+# 10.times do
+#   Favourite.create!(
+#     user_id: User.order("RANDOM()").first.id,
+#     hike_id: Hike.order("RANDOM()").first.id
+#   )
+# end

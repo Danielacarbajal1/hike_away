@@ -1,0 +1,29 @@
+<div class="card-container-with-map">
+   <div class="profile-content">
+     <%= cl_image_tag(current_user.photo, width: 250, height: 250, crop: :thumb, class: "profile-pic") %>
+
+     <div class="card-block">
+      <p>
+        <strong><%= current_user.first_name.capitalize %></strong>
+      </p>
+     </div>
+   </div>
+</div>
+
+<h1>Favourites</h1>
+  <%= @favourites_user.each do |favourite| %>
+    <% if favourite.hike.photo.present? %>
+      <%= cl_image_tag favourite.hike.photo, height: 300, width: 400, crop: :fill  %>
+      <h2><%= favourite.hike.name.capitalize %></h2>
+      <p>Length: <%= favourite.hike.length %> hours</p>
+      <p>Distance: <%= favourite.hike.km %> kms</p>
+    <% end %>
+  <% end %>
+
+<h1>Reviews</h1>
+  <% @reviews_user.each do |review| %>
+      <p>First name: <%= review.user.first_name %></p>
+      <p>Last name: <%= review.user.last_name %></p>
+      <p>Comment: <%= review.content %></p>
+      <p>Start: <%= review.stars %></p>
+  <% end %>
