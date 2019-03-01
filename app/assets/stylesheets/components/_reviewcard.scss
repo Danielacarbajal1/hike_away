@@ -1,6 +1,52 @@
 .review-card {
   background-color: #F5F3EE;
-  width: 187px;
-  height: 105px;
+  width: 220px;
+  height: 110px;
+  position: relative;
+  margin-bottom: 10px;
 }
 
+.review-avatar {
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.review-card h2 {
+  position: absolute;
+  top: 0px;
+  left: 75px;
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #061D2B;
+}
+
+.review-card h3 {
+  position: absolute;
+  width: 140px;
+  height: 38px;
+  left: 70px;
+  top: 30px;
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 12px;
+  font-size: 20px;
+  color: #3F4548;
+}
+
+.glyphicon {
+color: #EF7E56;
+}
+
+.rating-review {
+  position: absolute;
+  bottom: 8px;
+  right: 15px;
+}
