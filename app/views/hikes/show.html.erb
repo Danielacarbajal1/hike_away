@@ -8,7 +8,7 @@
     <p><%= @hike.km %>km</p>
     <p>What to bring</p>
   </div>
-  <div class="show-icon">
+  <div id="show-icon" class="show-icon">
     <% unless current_user.nil? %>
       <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
     <% end %>

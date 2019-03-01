@@ -12,12 +12,12 @@ class FavouritesController < ApplicationController
     @existing_favourite = current_user.favourites.find_by(hike_id: @hike.id)
     if !@existing_favourite.nil?
       @existing_favourite.destroy
-      redirect_to hike_path(@hike)
+      redirect_to "#{hike_path(@hike)}#show-icon"
     else
       @favourite.hike = @hike
       @favourite.user = current_user
       if @favourite.save
-        redirect_to hike_path(@hike)
+        redirect_to "#{hike_path(@hike)}#show-icon"
       else
         render :new
       end
@@ -27,7 +27,7 @@ class FavouritesController < ApplicationController
   def destroy
     @favourite = Favourite.find(params[:id])
     @favourite.destroy
-    redirect_to hike_path(@hike)
+    redirect_to "#{hike_path(@hike)}#show-icon"
   end
 
   private
