@@ -1,3 +1,3 @@
 <%= simple_form_for([hike, favourite]) do |form| %>
-<%= form.submit "Favourite", :type => :image, :src => current_user.favourites.find_by(hike_id: @hike.id).nil? ? '../assets/likee.svg' : '../assets/like.svg', :class => "show-flaticon" %>
+<%= form.submit "Favourite", :type => :image, :src => current_user.favourites.find_by(hike_id: @hike.id).nil? ? image_path('likee.svg') : image_path('like.svg'), :class => "show-flaticon" %>
 <% end %>
