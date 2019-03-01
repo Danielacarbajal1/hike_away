@@ -10,11 +10,7 @@
   </div>
   <div class="show-icon">
     <% unless current_user.nil? %>
-    <% if current_user.favourites.find_by(hike_id: @hike.id) %>
-    <%= image_tag("like.svg", :class => "show-flaticon") %>
-    <% else %>
-    <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
-    <% end %>
+      <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
     <% end %>
   </div>
 </div>
@@ -122,7 +118,7 @@
     <p>First name: <%= review.user.first_name %></p>
     <p>Last name: <%= review.user.last_name %></p>
     <p>Comment: <%= review.content %></p>
-    <p>Start: <%= review.stars %></p>
+    <p>Star: <%= review.stars %></p>
 
   <% end %>
 </div>
