@@ -98,14 +98,18 @@
     </div>
   </div>
 </div>
+
 <div class="alert" role="alert" id="result2"></div>
+
+    <% @hike.reviews.each do |review| %>
   <div class="review-card">
-  <% @hike.reviews.each do |review| %>
-  <img src= <%= review.user.photo %>
-    <p>First name: <%= review.user.first_name %></p>
-    <p>Last name: <%= review.user.last_name %></p>
-    <p>Comment: <%= review.content %></p>
-    <p>Start: <%= review.stars %></p>
-  <% end %>
-  </div>
-</div>
+    <img class="review-avatar" src= <%= review.user.photo %> >
+    <h2> <%= review.user.first_name %></h2>
+    <h3><%= review.content %></h3>
+    <div class="rating-review">
+    <% review.stars.to_i.times do  %>
+    <span class="glyphicon glyphicon-star"></span>
+    <% end %>
+    </div>
+    </div>
+    <% end %>
