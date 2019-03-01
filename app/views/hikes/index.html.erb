@@ -2,37 +2,37 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 </head>
+<div class="choose-perfect">
+  <h1>CHOOSE THE <br>PERFECT <br><span style="text-decoration: underline #EF7E56">HIKE FOR YOU</h1>
+</div>
 
-<h1>Hikes#index</h1>
-      <div class="search form-inline">
-        <%= form_tag hikes_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "input_large form-control",
-        placeholder: "Find a hike" %>
-         <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Ranking", class: "form-control form-dropdown"}%>
-        <%= label :city, "Search hikes near : " %>
-        <%= text_field_tag :city, params[:city] %>
-        <%= label :distance, "Distance : " %>
-        <%= text_field_tag :distance, params[:distance] %>
-        <%= submit_tag "Search" %>
+      <div class="search form-inline-hike">
+        <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
+        <%= text_field_tag( :city, params[:city], class: "search-index", placeholder: "City")%>
+         <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Difficulty Level", class: "form-control form-dropdown"}%>
+        <%= select_tag :distance, options_for_select([100, 150, 200, 150], params[:distance]), {:include_blank => "Distance", class: "form-control form-dropdown"}%>
+    </div>
+      <div class="bouton-index">
+        <%= submit_tag( "Search" , class: "btn-index") %>
       <% end %>
+      </div>
       <div class="col-md-6">
         <div
           id="map"
           style="width: 100%;
-          height: 600px;"
+          height: 292px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         >
       </div>
 
     <div class="container">
+      <h1>Hikes</h1>
       <% @hikes.each do |hike| %>
         <%=link_to(hike_path(hike.id)) do %>
         <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <%= cl_image_tag(hike.photo, height: 250, width: 350, crop: :fill, class: "hike-photo") %>
+        <%= cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo") %>
           <h4 class="hike-name"><%= hike.name.capitalize %></h4>
           <div class="hike-infos">
           <ul>

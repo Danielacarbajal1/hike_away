@@ -1,3 +1,11 @@
+.container-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 13px ;
+  margin-right: 13px;
+  margin-top: 20px;
+}
+
 body {
   background-color: white;
 }
@@ -63,4 +71,22 @@ body {
   margin-left: 28px;
   margin-right: 28px;
   margin-top: 18px;
+}
+
+.what-bring-btn {
+  padding: 10px;
+  color: #1B4057;
+  border-style: solid;
+  border-color: #1B4057;
+  border-width: 2px;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  font-size: 12px;
+  text-align: center;
+  width: 125px;
+  height: 42px;
+  background-color: transparent;
+    margin-left: 13px;
 }
