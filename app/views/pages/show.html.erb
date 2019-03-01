@@ -1,5 +1,4 @@
-<div class="card-container-with-map">
-   <div class="profile-content">
+<div class="profile-container">
      <%= cl_image_tag(current_user.photo, width: 250, height: 250, crop: :thumb, class: "profile-pic") %>
 
      <div class="card-block">
@@ -7,23 +6,41 @@
         <strong><%= current_user.first_name.capitalize %></strong>
       </p>
      </div>
-   </div>
 </div>
-
-<h1>Favourites</h1>
+<div class="favourite-section">
+  <h1>Favourites</h1>
   <%= @favourites_user.each do |favourite| %>
     <% if favourite.hike.photo.present? %>
-      <%= cl_image_tag favourite.hike.photo, height: 300, width: 400, crop: :fill  %>
-      <h2><%= favourite.hike.name.capitalize %></h2>
-      <p>Length: <%= favourite.hike.length %> hours</p>
-      <p>Distance: <%= favourite.hike.km %> kms</p>
+      <%= cl_image_tag( favourite.hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo"  )%>
+      <h4 class="hike-name-profile"><%= favourite.hike.name.capitalize %></h4>
+      <div class="hike-infos">
+          <ul>
+            <li>
+            <%=image_tag("trekking.svg", class: "hike-icon") %> <span><%= favourite.hike.category.capitalize %></span>
+            </li>
+            <li>
+            <%=image_tag("clock.svg", class: "hike-icon") %> <span><%= favourite.hike.length %>hrs</span>
+            </li>
+            <li>
+            <%=image_tag("distance.svg", class: "hike-icon") %><span><%= favourite.hike.km %>km</span>
+            </li>
+            </ul>
     <% end %>
   <% end %>
+  </div>
+</div>
 
 <h1>Reviews</h1>
-  <% @reviews_user.each do |review| %>
-      <p>First name: <%= review.user.first_name %></p>
-      <p>Last name: <%= review.user.last_name %></p>
-      <p>Comment: <%= review.content %></p>
-      <p>Start: <%= review.stars %></p>
-  <% end %>
+    <% @reviews_user.each do |review| %>
+  <div class="review-card">
+    <img class="review-avatar" src= <%= review.user.photo %> >
+    <h2> <%= review.user.first_name %></h2>
+    <h3><%= review.content %></h3>
+    <div class="rating-review">
+    <% review.stars.to_i.times do  %>
+    <span class="glyphicon glyphicon-star"></span>
+    <% end %>
+    </div>
+    </div>
+    <% end %>
+
