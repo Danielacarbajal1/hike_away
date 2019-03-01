@@ -9,7 +9,7 @@
 </div>
 <div class="favourite-section">
   <h1>Favourites</h1>
-  <%= @favourites_user.each do |favourite| %>
+  <% @favourites_user.each do |favourite| %>
     <% if favourite.hike.photo.present? %>
       <%= cl_image_tag( favourite.hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo"  )%>
       <h4 class="hike-name-profile"><%= favourite.hike.name.capitalize %></h4>
