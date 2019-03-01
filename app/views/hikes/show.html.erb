@@ -9,7 +9,9 @@
     <p>What to bring</p>
   </div>
   <div class="show-icon">
-    <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
+    <% unless current_user.nil? %>
+      <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
+    <% end %>
   </div>
 </div>
 <div class="show-description">
@@ -97,7 +99,6 @@
   </div>
 </div>
 <div class="alert" role="alert" id="result2"></div>
-
   <div class="review-card">
   <% @hike.reviews.each do |review| %>
   <img src= <%= review.user.photo %>
