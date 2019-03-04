@@ -46,6 +46,9 @@
     <% review.stars.to_i.times do  %>
     <span class="glyphicon glyphicon-star"></span>
     <% end %>
+    <% review.blank_stars.to_i.times do %>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <% end %>
     </div>
     </div>
     <% end %>

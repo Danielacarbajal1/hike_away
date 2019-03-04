@@ -7,9 +7,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.hike = Hike.find(params[:hike_id])
     @review.user = current_user
-    if @review.save
-      redirect_to review_path
+    if @review.save!
+      redirect_to hike_path(@review.hike)
     else
       render :new
     end

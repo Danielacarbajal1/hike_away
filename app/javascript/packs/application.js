@@ -149,9 +149,3 @@ modalConfirm(function(confirmdir){
     $("#result2");
   }
 });
-
-const heart = document.getElementById("show-flaticon")
-heart.addEventListener('click', function (){
-  heart.classList.toggle("hidden")
-  document.querySelector(".show-icon").insertAdjacentHTML = ("beforeend", '<%= image_tag("like.svg") %>')
-  });
