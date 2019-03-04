@@ -55,27 +55,28 @@
             <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
             <input type="comment" id="defaultForm-review" class="form-control validate"> -->
 
-            <% @hike.reviews.each do |review| %>
-              <img class="review-avatar" src= <%= current_user.photo %> >
-              <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
-              <input type="name" id="defaultForm-review" class="form-control validate">
+              <div>
+                <img class="review-avatar" src= <%= current_user.photo %> >
+                <h1><strong><%= current_user.first_name.capitalize %></strong></h1>
+              </div>
 
-              <i class="far fa-comments"></i>
-              <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
-              <input type="comment" id="defaultForm-review" class="form-control validate">
+              <div>
+                <i class="far fa-comments"></i>
+                <label data-error="wrong" data-success="right" for="defaultForm-review">My comment: </label>
+                <input type="comment" id="defaultForm-review" class="form-control validate">
+              </div>
 
               <div class="rating-review">
-                <% review.stars.to_i.times do  %>
-                  <span class="glyphicon glyphicon-star"></span>
-                <% end %>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
               </div>
+              <button class="btn btn-default"><%= link_to "Confirm", hike_path %></button>
               </div>
-            <% end %>
           </div>
         </div>
       </div>
     </div>
-      <div class="alert" role="alert" id="result" color="black"></div>
     </div>
   <!-- END Content about Review form  -->
 
