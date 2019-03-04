@@ -37,4 +37,5 @@ class HikesController < ApplicationController
   def set_hike
     @hike = Hike.find(params[:id])
   end
+
 end

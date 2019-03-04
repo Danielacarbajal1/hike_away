@@ -50,6 +50,13 @@
               <% else %>
               <%=  hike.length / 60 %>hrs and <%= hike.length % 60 %>mins
               <% end %>
+              <% unless current_user.nil? %>
+                <% if Favourite.find_favourites(current_user.id, hike.id).empty? %>
+                  <%= image_tag('likee.svg', class: "hike-icon") %>
+                <% else %>
+                  <%= image_tag('like.svg', class: "hike-icon") %>
+                <% end %>
+              <% end %>
             </span>
             </li>
             <li>
