@@ -1,29 +1,33 @@
-<div class="box-blue"></div>
-<div class="show-name"><%= @hike.name.capitalize %></div>
-<%= cl_image_tag(@hike.photo, crop: :fill, class: "show-photo") if @hike.photo.present? %>
-<div class="show-info">
-  <div class="show-category">
-    <p><%= @hike.city %></p>
-    <% if @hike.length < 60 %>
-    <%= @hike.length %> mins
-    <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
-    <p><%= @hike.length / 60 %> hrs</p>
-    <% else %>
-    <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
-    <% end %>
-    <p><%= @hike.km %>km</p>
+<div class="app-container">
+  <div class="row title-row">
+    <div class="box-blue"></div>
+    <div class="show-name"><%= @hike.name.capitalize %></div>
   </div>
 
-  <div id="show-icon" class="show-icon">
-    <% unless current_user.nil? %>
-    <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
-    <% end %>
-  </div>
-</div>
+  <%= cl_image_tag(@hike.photo, crop: :fill, class: "show-photo") if @hike.photo.present? %>
+  <div class="show-info">
+    <div class="show-category">
+      <p><%= @hike.city %></p>
+      <% if @hike.length < 60 %>
+      <%= @hike.length %> mins
+      <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
+      <p><%= @hike.length / 60 %> hrs</p>
+      <% else %>
+      <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
+      <% end %>
+      <p><%= @hike.km %>km</p>
+    </div>
 
-<div class="show-description">
-  <p><%= @hike.description.capitalize %></p>
-</div>
+    <div id="show-icon" class="show-icon">
+      <% unless current_user.nil? %>
+      <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="show-description">
+    <p><%= @hike.description.capitalize %></p>
+  </div>
 
 
   <!-- All buttons -->
@@ -31,12 +35,12 @@
     <% if current_user.present? %>
     <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
     <% end %>
-    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal">WHAT TO BRING?</button>
+    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal"><span style="margin-top: auto; margin-bottom: auto;">WHAT TO BRING?</span></button>
     <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
   </div>
 
   <!-- START Content about Review form  -->
-   <div class="container">
+  <div class="container">
 
     <!-- Modal -->
     <div class="modal fade" id="myModalReviews" role="dialog">
@@ -46,18 +50,18 @@
         <div class="modal-content">
 
           <div class="modal-header">
-                <% if current_user.present? %>
+            <% if current_user.present? %>
             <h1 class="modal-title">Add review</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-           <!--  <img class="review-avatar" src= >
+             <!--  <img class="review-avatar" src= >
 
-            <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
-            <input type="name" id="defaultForm-review" class="form-control validate">
+              <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
+              <input type="name" id="defaultForm-review" class="form-control validate">
 
-            <i class="far fa-comments"></i>
-            <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
-            <input type="comment" id="defaultForm-review" class="form-control validate"> -->
+              <i class="far fa-comments"></i>
+              <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
+              <input type="comment" id="defaultForm-review" class="form-control validate"> -->
 
               <div>
                 <img class="review-avatar" src= <%= current_user.photo %> >
@@ -76,12 +80,11 @@
                 <span class="glyphicon glyphicon-star"></span>
               </div>
               <button class="btn btn-default"><%= link_to "Confirm", hike_path %></button>
-                <% end %>
-              </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   <!-- END Content about Review form  -->
 
@@ -92,75 +95,75 @@
     <div class="modal fade" id="myModal" role="dialog">
       <div class=modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content modal-style">
+        <!-- Modal content-->
+        <div class="modal-content modal-style">
 
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 class="modal-title">What to bring:</h1>
-          <div class="what-to-bring">
-            <div class="input">
-              <input type="checkbox" name="shoes" value="Shoes" id="shoes"> SHOES<br>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h1 class="modal-title">What to bring:</h1>
+            <div class="what-to-bring">
+              <div class="input">
+                <input type="checkbox" name="shoes" value="Shoes" id="shoes"> SHOES<br>
+              </div>
+              <div class="input">
+                <input type="checkbox" name="water" value="Water" id="water"> WATER<br>
+              </div>
+              <div class="input">
+                <input type="checkbox" name="food" value="Food" id="food"> FOOD<br>
+              </div>
+              <div class="input">
+                <input type="checkbox" name="camera" value="Camera" id="camera"> CAMERA<br>
+              </div>
+              <div class="input">
+                <input type="checkbox" name="your_date" value="Your_date" id="date"> YOUR DATE<br>
+              </div>
             </div>
-            <div class="input">
-              <input type="checkbox" name="water" value="Water" id="water"> WATER<br>
-            </div>
-            <div class="input">
-              <input type="checkbox" name="food" value="Food" id="food"> FOOD<br>
-            </div>
-            <div class="input">
-              <input type="checkbox" name="camera" value="Camera" id="camera"> CAMERA<br>
-            </div>
-            <div class="input">
-              <input type="checkbox" name="your_date" value="Your_date" id="date"> YOUR DATE<br>
-            </div>
-          </div>
 
-          <p>YOU ARE <span class="counter"></span> READY FOR YOUR HIKE.</p>
-          <div id="progress" style="background-color: rgba(222, 213, 196, 0.5); width: 100; height: 20px">
-            <div id="dontProgress" style="background-color: #EF7E56; width: 0%; height: 20px"></div>
+            <p>YOU ARE <span class="counter"></span> READY FOR YOUR HIKE.</p>
+            <div id="progress" style="background-color: rgba(222, 213, 196, 0.5); width: 100; height: 20px">
+              <div id="dontProgress" style="background-color: #EF7E56; width: 0%; height: 20px"></div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="alert" role="alert" id="result" color="black"></div>
     </div>
-    <div class="alert" role="alert" id="result" color="black"></div>
-  </div>
 
-  <div class="container test-1">
+    <div class="container test-1">
 
-    <!-- Modal -->
-    <div class="modal fade" id="myDirections" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h1 class="modal-title">Get Directions</h1>
-          </div>
-          <div class="modal-body">
-            <iframe
-            width="500"
-            height="500"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-            src="https://maps.google.com/maps?q=<%= @hike.latitude %>,<%= @hike.longitude %>&hl=es;z=14&amp;output=embed"
-            >
-          </iframe>
-          <br />
-          <small>
-            <a
-            href="https://maps.google.com/maps?q=<%= @hike.latitude %>,<%= @hike.longitude %>&hl=es;z=14&amp;output=embed"
-            style="color:#1B4057;text-align:left"
-            target="_blank"
-            >
-            Navigate with Google Maps
-          </a>
-        </small>
+      <!-- Modal -->
+      <div class="modal fade" id="myDirections" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h1 class="modal-title">Get Directions</h1>
+            </div>
+            <div class="modal-body">
+              <iframe
+              width="500"
+              height="500"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://maps.google.com/maps?q=<%= @hike.latitude %>,<%= @hike.longitude %>&hl=es;z=14&amp;output=embed"
+              >
+            </iframe>
+            <br />
+            <small>
+              <a
+              href="https://maps.google.com/maps?q=<%= @hike.latitude %>,<%= @hike.longitude %>&hl=es;z=14&amp;output=embed"
+              style="color:#1B4057;text-align:left"
+              target="_blank"
+              >
+              Navigate with Google Maps
+            </a>
+          </small>
+        </div>
       </div>
     </div>
-  </div>
 </div>
 
 <div class="container slide-show">
@@ -180,7 +183,10 @@
           </div>
         </div>
 
-    </li>
-        <% end %>
-  </ul>
+      </li>
+      <% end %>
+    </ul>
+      </div>
+    </div>
+  </div>
 </div>

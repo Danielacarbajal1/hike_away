@@ -9,17 +9,20 @@
 
 body {
   background-color: white;
+  position: relative;
 }
 .box-blue{
-  width:60%;
-  height:300px;
+  width:60vw;
+  height:15vh;
   background-color: #A9AEB3;
-  position: absolute;
-  top: 0;
   right: 0;
-  z-index: -1;
+  position: absolute;
+  top: 10px;
 }
 
+// .title-row {
+//   position: relative;
+// }
 .show-photo {
   width: 100vw;
   margin-top: 10px;
@@ -27,15 +30,19 @@ body {
 }
 
 .show-name {
-  text-align: right;
-  margin-right: 20px;
   font-family: 'Playfair Display', serif;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
+  top: 15px;
   font-size: 24px;
   text-indent: 8px;
   color: #305973;
+  z-index: 10;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+
 }
 
 .show-flaticon{
@@ -74,7 +81,6 @@ body {
 }
 
 .what-bring-btn {
-  padding: 10px;
   color: #1B4057;
   border-style: solid;
   border-color: #1B4057;
@@ -107,4 +113,10 @@ body {
   height: 42px;
   background-color: transparent;
   margin-left: 13px;
+}
+
+.app-container {
+  top: 70px;
+  width: 100vw;
+  position: relative;
 }
