@@ -71,7 +71,7 @@ input:focus {
   outline:none;
 }
 
-.search {
+.search.form-inline {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,4 +92,6 @@ input:focus {
 
 .form-inline {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }

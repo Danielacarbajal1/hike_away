@@ -27,12 +27,13 @@
         >
       </div>
 
-    <div class="container">
+    <div class="container slide-show">
+      <div class="full hide-scroll">
       <h1>Hikes</h1>
+      <ul class="hs">
       <% @hikes.each do |hike| %>
-        <%=link_to(hike_path(hike.id)) do %>
-        <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6">
+        <li class="item">
+        <%= link_to(hike_path(hike.id)) do %>
         <%= cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo") %>
           <h4 class="hike-name"><%= hike.name.capitalize %></h4>
           <div class="hike-infos">
@@ -60,7 +61,8 @@
           <% end %>
         </div>
       </div>
-      </div>
+      </li>
+      </ul>
     </div>
 <body>
 
