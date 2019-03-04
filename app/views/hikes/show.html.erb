@@ -1,3 +1,4 @@
+    <%= render 'shared/navbar' %>
 <div class="app-container">
   <div class="row title-row">
     <div class="box-blue"></div>
@@ -32,9 +33,6 @@
 
   <!-- All buttons -->
   <div class="container-btns">
-    <% if current_user.present? %>
-    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
-    <% end %>
     <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal"><span style="margin-top: auto; margin-bottom: auto;">WHAT TO BRING?</span></button>
     <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
   </div>
@@ -189,4 +187,9 @@
       </div>
     </div>
   </div>
+</div>
+<div class="review-btn">
+      <% if current_user.present? %>
+    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
+    <% end %>
 </div>

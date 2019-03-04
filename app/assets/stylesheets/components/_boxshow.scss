@@ -18,6 +18,7 @@ body {
   right: 0;
   position: absolute;
   top: 10px;
+  z-index: -1;
 }
 
 // .title-row {
@@ -120,3 +121,4 @@ body {
   width: 100vw;
   position: relative;
 }
+
