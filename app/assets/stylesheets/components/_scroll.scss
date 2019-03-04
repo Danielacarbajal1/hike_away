@@ -21,7 +21,7 @@
 .hs {
   display: grid;
   grid-gap: calc(var(--gutter) / 2);
-  grid-template-columns: 10px repeat(7, calc(100% - var(--gutter) * 2)) 10px;
+  grid-template-columns: 10px repeat(99, calc(100% - var(--gutter) * 2)) 10px;
   grid-template-rows: minmax(150px, 1fr);
 
   overflow-x: scroll;
@@ -58,13 +58,13 @@ ul {
   overflow-y: scroll;
 }
 
-.hs > li,
-.item {
+.hs > li, .item {
   scroll-snap-align: center;
   padding: calc(var(--gutter) / 1 * 1.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .slide-show {
