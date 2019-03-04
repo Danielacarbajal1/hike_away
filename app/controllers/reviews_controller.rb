@@ -33,8 +33,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
     @review.destroy
-    redirect_to hike_path
+    redirect_to page_path(current_user)
   end
 
   private

@@ -199,7 +199,7 @@
 </div>
 
 <script>
-  function activateStars(index){
+  function activateStars(index, classname){
     console.log("clicked a star");
       console.log(index)
 
@@ -210,15 +210,17 @@
     stars.forEach((star, i) => {
       console.log(star);
 
-      star.classList.remove("active-star")
+      star.classList.remove(classname)
       if (i < index) {
       console.log("adding active star class")
       console.log(i)
-        star.classList.add("active-star")
+        star.classList.add(classname)
       }
     })
-
+    if (classname === "active-star") {
     document.getElementById("review_stars").value = index;
+
+    }
   }
   const stars = document.querySelectorAll(".star");
   stars.forEach((star) => {
@@ -229,7 +231,20 @@
       const index = e.currentTarget.attributes["value"]
       // console.log(index)
 
-      activateStars(index.value)
+      activateStars(index.value, "active-star")
+
+    })
+    star.addEventListener("mouseenter", (e) => {
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(index.value, "temp-active-star")
+    })
+    star.addEventListener("mouseleave", (e) => {
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(0, "temp-active-star")
     })
   })
 </script>
