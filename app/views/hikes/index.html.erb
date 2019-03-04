@@ -41,7 +41,16 @@
             <%=image_tag("trekking.svg", class: "hike-icon") %> <span><%= hike.category.capitalize %></span>
             </li>
             <li>
-            <%=image_tag("clock.svg", class: "hike-icon") %> <span><%= hike.length %>hrs</span>
+            <%=image_tag("clock.svg", class: "hike-icon") %>
+            <span>
+              <% if hike.length < 60 %>
+              <%= hike.length %>mins
+              <% elsif (hike.length >= 60 && hike.length % 60 == 0) %>
+              <p><%= hike.length / 60 %>hrs</p>
+              <% else %>
+              <%=  hike.length / 60 %>hrs and <%= hike.length % 60 %> mins
+              <% end %>
+            </span>
             </li>
             <li>
             <%=image_tag("distance.svg", class: "hike-icon") %><span><%= hike.km %>km</span>

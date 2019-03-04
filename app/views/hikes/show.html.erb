@@ -4,7 +4,13 @@
 <div class="show-info">
   <div class="show-category">
     <p><%= @hike.city %></p>
-    <p><%= @hike.length %>hrs</p>
+    <% if @hike.length < 60 %>
+    <%= @hike.length %>mins
+    <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
+    <p><%= @hike.length / 60 %>hrs</p>
+    <% else %>
+    <%=  @hike.length / 60 %>hrs and <%= @hike.length % 60 %> mins
+    <% end %>
     <p><%= @hike.km %>km</p>
   </div>
   <div id="show-icon" class="show-icon">
