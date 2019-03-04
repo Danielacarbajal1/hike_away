@@ -5,7 +5,7 @@
   height: 70px;
   padding: 0px 30px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 /* User Avatar */
@@ -20,7 +20,7 @@
 /* Right section */
 .navbar-wagon-right {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
 }
 

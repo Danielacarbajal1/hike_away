@@ -1,4 +1,7 @@
 <div class="navbar-wagon">
+  <%= link_to(root_path) do %>
+  <i class="fas fa-home fa-2x"></i>
+  <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
     <% if user_signed_in? %>
@@ -21,6 +24,7 @@
               <% end %>
               <% end %>
             </li>
+          </li>
           </ul>
         </div>
       </div>
@@ -30,4 +34,5 @@
     <% end %>
   </div>
 </div>
+
 
