@@ -34,7 +34,7 @@
       <% @hikes.each do |hike| %>
         <li class="item">
         <%= link_to(hike_path(hike.id)) do %>
-        <%= cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo hvr-pulse-shrink") %>
+        <%= cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo") %>
           <h4 class="hike-name"><%= hike.name.capitalize %></h4>
           <div class="hike-infos">
           <ul>
