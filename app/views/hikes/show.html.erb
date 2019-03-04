@@ -62,6 +62,7 @@
               <i class="far fa-comments"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
               <input type="comment" id="defaultForm-review" class="form-control validate"> -->
+  <%= simple_form_for([@hike, @review]) do |f| %>
 
               <div>
                 <img class="review-avatar" src= <%= current_user.photo %> >
@@ -69,18 +70,21 @@
               </div>
 
               <div>
-                <i class="far fa-comments"></i>
-                <label data-error="wrong" data-success="right" for="defaultForm-review">My comment: </label>
-                <input type="comment" id="defaultForm-review" class="form-control validate">
+                 <%= f.input :content, class: "commentinput"%>
+                 <%= f.input :stars, input_html: { class: "hidden" }, label: false %>
               </div>
-
-              <div class="rating-review">
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-              </div>
-              <button class="btn btn-default"><%= link_to "Confirm", hike_path %></button>
+              <br>
+                <ul class="rating">
+                  <li class="star" value="1" id="star1"><i class="fas fa-star"></i></li>
+                   <li class="star" value="2" id="star2"><i class="fas fa-star"></i></li>
+                   <li class="star" value="3" id="star3"><i class="fas fa-star"></i></li>
+                   <li class="star" value="4" id="star4"><i class="fas fa-star"></i></li>
+                   <li class="star" value="5" id="star5"><i class="fas fa-star"></i></li>
+                </ul>
+              <br>
+              <%= f.submit class: "btn btn-review" %>
               <% end %>
+            <% end %>
             </div>
           </div>
         </div>
@@ -142,8 +146,8 @@
             </div>
             <div class="modal-body">
               <iframe
-              width="500"
-              height="500"
+              width="300"
+              height="300"
               frameborder="0"
               scrolling="no"
               marginheight="0"
@@ -180,6 +184,9 @@
             <% review.stars.to_i.times do  %>
             <span class="glyphicon glyphicon-star"></span>
             <% end %>
+            <% review.blank_stars.to_i.times do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <% end %>
           </div>
         </div>
 
@@ -190,3 +197,54 @@
     </div>
   </div>
 </div>
+
+<script>
+  function activateStars(index, classname){
+    console.log("clicked a star");
+      console.log(index)
+
+    const stars = document.querySelectorAll(".star");
+    // console.log(stars);
+    // const activeStars = Array.prototype.slice.call(stars).slice(0, index);
+    // console.log(activeStars)
+    stars.forEach((star, i) => {
+      console.log(star);
+
+      star.classList.remove(classname)
+      if (i < index) {
+      console.log("adding active star class")
+      console.log(i)
+        star.classList.add(classname)
+      }
+    })
+    if (classname === "active-star") {
+    document.getElementById("review_stars").value = index;
+
+    }
+  }
+  const stars = document.querySelectorAll(".star");
+  stars.forEach((star) => {
+    star.addEventListener("click", (e) =>{
+
+      // console.log(e.currentTarget)
+
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(index.value, "active-star")
+
+    })
+    star.addEventListener("mouseenter", (e) => {
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(index.value, "temp-active-star")
+    })
+    star.addEventListener("mouseleave", (e) => {
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(0, "temp-active-star")
+    })
+  })
+</script>
