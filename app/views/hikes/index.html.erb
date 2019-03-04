@@ -34,7 +34,7 @@
       <% @hikes.each do |hike| %>
         <li class="item">
         <%= link_to(hike_path(hike.id)) do %>
-        <%= cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo") %>
+        <%= cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo hvr-pulse-shrink") %>
           <h4 class="hike-name"><%= hike.name.capitalize %></h4>
           <div class="hike-infos">
           <ul>
@@ -45,11 +45,11 @@
             <%=image_tag("clock.svg", class: "hike-icon") %>
             <span>
               <% if hike.length < 60 %>
-              <%= hike.length %>mins
+              <%= hike.length %> mins
               <% elsif (hike.length >= 60 && hike.length % 60 == 0) %>
-              <p><%= hike.length / 60 %>hrs</p>
+              <p><%= hike.length / 60 %> hrs</p>
               <% else %>
-              <%=  hike.length / 60 %>hrs and <%= hike.length % 60 %>mins
+              <%=  hike.length / 60 %> hrs and <%= hike.length % 60 %> mins
               <% end %>
               <% unless current_user.nil? %>
                 <% if Favourite.find_favourites(current_user.id, hike.id).empty? %>

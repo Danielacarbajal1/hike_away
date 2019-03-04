@@ -20,11 +20,11 @@
             </li>
             <li>
               <% if favourite.hike.length < 60 %>
-              <%= favourite.hike.length %>mins
+              <%= favourite.hike.length %> mins
               <% elsif (favourite.hike.length >= 60 && favourite.hike.length % 60 == 0) %>
-              <p><%= favourite.hike.length / 60 %>hrs</p>
+              <p><%= favourite.hike.length / 60 %> hrs</p>
               <% else %>
-              <%=  favourite.hike.length / 60 %>hrs and <%= favourite.hike.length % 60 %>mins
+              <%=  favourite.hike.length / 60 %> hrs and <%= favourite.hike.length % 60 %> mins
               <% end %>
             </li>
             <li>
