@@ -86,7 +86,7 @@ ul {
   display: grid;
   grid-gap: calc(var(--gutter) / 6);
   // grid-template-columns: 10px auto auto 10px;
-  grid-template-columns: 10px repeat(auto-fill, calc(100% - var(--gutter) * 2)) 10px;
+  grid-template-columns: 10px repeat(99, calc(100% - var(--gutter) * 2)) 10px;
   grid-template-rows: minmax(150px, 1fr);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
@@ -104,3 +104,30 @@ ul {
   margin-right: auto;
   max-width: 100vw !important;
 }
+
+/* PROFILE SCROLL */
+
+.hsss > li, .item {
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.hsss {
+  display: grid;
+  grid-gap: calc(var(--gutter) / 5);
+  // grid-template-columns: 10px auto auto 10px;
+  grid-template-columns: 10px repeat(99, calc(90% - var(--gutter) * 2)) 10px;
+  grid-template-rows: minmax(150px, 1fr);
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+}
+
+.hsss:before,
+.hsss:after {
+  content: '';
+}
+
+
