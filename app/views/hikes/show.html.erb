@@ -5,34 +5,92 @@
   <div class="show-category">
     <p><%= @hike.city %></p>
     <% if @hike.length < 60 %>
-    <%= @hike.length %>mins
+    <%= @hike.length %> mins
     <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
-    <p><%= @hike.length / 60 %>hrs</p>
+    <p><%= @hike.length / 60 %> hrs</p>
     <% else %>
-    <%=  @hike.length / 60 %>hrs and <%= @hike.length % 60 %> mins
+    <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
     <% end %>
     <p><%= @hike.km %>km</p>
   </div>
+
   <div id="show-icon" class="show-icon">
     <% unless current_user.nil? %>
     <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
     <% end %>
   </div>
 </div>
+
 <div class="show-description">
   <p><%= @hike.description.capitalize %></p>
 </div>
 
 
-<div class="container-btns">
-  <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal">WHAT TO BRING?</button>
-  <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
-</div>
-<div class="test-2 scroll-review">
+  <!-- All buttons -->
+  <div class="container-btns">
+    <% if current_user.present? %>
+    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
+    <% end %>
+    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal">WHAT TO BRING?</button>
+    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
+  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+  <!-- START Content about Review form  -->
+   <div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalReviews" role="dialog">
+      <div class=modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+          <div class="modal-header">
+                <% if current_user.present? %>
+            <h1 class="modal-title">Add review</h1>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+           <!--  <img class="review-avatar" src= >
+
+            <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
+            <input type="name" id="defaultForm-review" class="form-control validate">
+
+            <i class="far fa-comments"></i>
+            <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
+            <input type="comment" id="defaultForm-review" class="form-control validate"> -->
+
+              <div>
+                <img class="review-avatar" src= <%= current_user.photo %> >
+                <h1><strong><%= current_user.first_name.capitalize %></strong></h1>
+              </div>
+
+              <div>
+                <i class="far fa-comments"></i>
+                <label data-error="wrong" data-success="right" for="defaultForm-review">My comment: </label>
+                <input type="comment" id="defaultForm-review" class="form-control validate">
+              </div>
+
+              <div class="rating-review">
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+              </div>
+              <button class="btn btn-default"><%= link_to "Confirm", hike_path %></button>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- END Content about Review form  -->
+
+  <!-- START Content about what to bring ? -->
+  <div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class=modal-dialog">
 
       <!-- Modal content-->
       <div class="modal-content modal-style">
@@ -67,6 +125,7 @@
     </div>
     <div class="alert" role="alert" id="result" color="black"></div>
   </div>
+
   <div class="container test-1">
 
     <!-- Modal -->
