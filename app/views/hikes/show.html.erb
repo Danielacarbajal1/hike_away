@@ -7,26 +7,78 @@
     <p><%= @hike.length %>hrs</p>
     <p><%= @hike.km %>km</p>
   </div>
+
   <div id="show-icon" class="show-icon">
     <% unless current_user.nil? %>
       <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
     <% end %>
   </div>
 </div>
+
 <div class="show-description">
   <p><%= @hike.description.capitalize %></p>
 </div>
 
-
+  <!-- All buttons -->
   <div class="container-btns">
+    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
     <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal">WHAT TO BRING?</button>
     <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
-</div>
+  </div>
+
+  <!-- START Content about Review form  -->
+   <div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalReviews" role="dialog">
+      <div class=modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h1 class="modal-title">Add review</h1>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+           <!--  <img class="review-avatar" src= >
+
+            <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
+            <input type="name" id="defaultForm-review" class="form-control validate">
+
+            <i class="far fa-comments"></i>
+            <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
+            <input type="comment" id="defaultForm-review" class="form-control validate"> -->
+
+            <% @hike.reviews.each do |review| %>
+              <img class="review-avatar" src= <%= current_user.photo %> >
+              <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
+              <input type="name" id="defaultForm-review" class="form-control validate">
+
+              <i class="far fa-comments"></i>
+              <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
+              <input type="comment" id="defaultForm-review" class="form-control validate">
+
+              <div class="rating-review">
+                <% review.stars.to_i.times do  %>
+                  <span class="glyphicon glyphicon-star"></span>
+                <% end %>
+              </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="alert" role="alert" id="result" color="black"></div>
+    </div>
+  <!-- END Content about Review form  -->
+
+  <!-- START Content about what to bring ? -->
   <div class="container">
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
+      <div class=modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content modal-style">
@@ -61,7 +113,10 @@
     </div>
     <div class="alert" role="alert" id="result" color="black"></div>
   </div>
-    <div class="container">
+  <!-- END Content about what to bring ? -->
+
+  <!-- START Content about to get directions -->
+  <div class="container">
 
     <!-- Modal -->
     <div class="modal fade" id="myDirections" role="dialog">
@@ -99,16 +154,17 @@
 </div>
 
 <div class="alert" role="alert" id="result2"></div>
+ <!-- END Content about to get directions -->
 
     <% @hike.reviews.each do |review| %>
-  <div class="review-card">
-    <img class="review-avatar" src= <%= review.user.photo %> >
-    <h2> <%= review.user.first_name %></h2>
-    <h3><%= review.content %></h3>
-    <div class="rating-review">
+        <div class="review-card">
+          <img class="review-avatar" src= <%= review.user.photo %> >
+          <h2> <%= review.user.first_name %></h2>
+          <h3><%= review.content %></h3>
+          <div class="rating-review">
     <% review.stars.to_i.times do  %>
-    <span class="glyphicon glyphicon-star"></span>
+      <span class="glyphicon glyphicon-star"></span>
     <% end %>
-    </div>
-    </div>
+          </div>
+        </div>
     <% end %>
