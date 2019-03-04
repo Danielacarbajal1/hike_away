@@ -27,7 +27,9 @@
 
   <!-- All buttons -->
   <div class="container-btns">
+    <% if current_user.present? %>
     <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
+    <% end %>
     <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal">WHAT TO BRING?</button>
     <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
   </div>
@@ -43,6 +45,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
+                <% if current_user.present? %>
             <h1 class="modal-title">Add review</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -72,6 +75,7 @@
                 <span class="glyphicon glyphicon-star"></span>
               </div>
               <button class="btn btn-default"><%= link_to "Confirm", hike_path %></button>
+                <% end %>
               </div>
           </div>
         </div>
