@@ -5,9 +5,12 @@
   height: 70px;
   padding: 0px 30px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
+.grey {
+  color: #0f0f0f;
+}
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
@@ -20,7 +23,7 @@
 /* Right section */
 .navbar-wagon-right {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
 }
 
