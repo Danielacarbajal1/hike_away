@@ -1,0 +1,5 @@
+<% if current_user.favourites.find_by(hike_id: @hike.id).nil? %>
+  document.getElementById('heart_id').src = "<%= image_path('likee.svg') %>"
+<% else %>
+  document.getElementById('heart_id').src = "<%= image_path('like.svg')%>"
+<% end %>
