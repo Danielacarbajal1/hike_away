@@ -1,11 +1,18 @@
     <%= render 'shared/navbar' %>
+
 <div class="app-container">
   <div class="row title-row">
+
     <div class="box-blue"></div>
     <div class="show-name"><%= @hike.name.capitalize %></div>
-  </div>
 
+
+  <div class="zoom">
   <%= cl_image_tag(@hike.photo, crop: :fill, class: "show-photo") if @hike.photo.present? %>
+  </div>
+  </div>
+  <main role="main">
+  <div class="content hidemee">
   <div class="show-info">
     <div class="show-category">
       <p><%= @hike.city %></p>
@@ -162,7 +169,7 @@
       <div class="alert" role="alert" id="result"></div>
     </div>
 
-    <div class="container test-1">
+    <div class="test-1">
 
       <!-- Modal -->
       <div class="modal fade" id="myDirections" role="dialog">
@@ -212,10 +219,10 @@
   </div>
 </div>
 
-<div class="container slide-show">
+<div class="slide-show">
   <div class="full hide-scroll">
     <h1>Reviews</h1>
-    <ul class="hss">
+    <ul class="hss targetDiv">
       <% @hike.reviews.each do |review| %>
       <li class="items">
         <div class="review-card">
@@ -251,6 +258,25 @@
       <% end %>
 </div>
 
+  </div>
+</main>
+
+<script type="text/javascript">
+
+  const setGrids = (count) => {
+    const element = document.querySelector('.targetDiv');
+    console.log('loaded the view')
+    console.log(count)
+    console.log(element.style)
+    console.log("faasdfa")
+    console.log(element.style.gridTemplateColumns)
+    element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
+
+  }
+  window.onload = setGrids(<%= @hike.reviews.count %>);
+
+
+</script>
 
 <script>
   function activateStars(index, classname){
@@ -302,3 +328,7 @@
     })
   })
 </script>
+
+<%= javascript_pack_tag "zoom" %>
+<%= javascript_pack_tag "fade" %>
+<%= javascript_pack_tag "checkbox" %>

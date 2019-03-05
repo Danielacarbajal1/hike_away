@@ -21,13 +21,19 @@
 .hs {
   display: grid;
   grid-gap: calc(var(--gutter) / 2);
-  grid-template-columns: 10px repeat(99, calc(100% - var(--gutter) * 2)) 10px;
+  // grid-template-columns: 10px repeat(99, calc(100% - var(--gutter) * 2)) 10px;
   grid-template-rows: minmax(150px, 1fr);
 
   overflow-x: scroll;
   scroll-snap-type: x proximity;
-
+-ms-overflow-style: none;
+overflow: -moz-scrollbars-none;
 }
+
+.hs::-webkit-scrollbar {
+  display: none;
+}
+
 
 .hs:before,
 .hs:after {
@@ -86,10 +92,16 @@ ul {
   display: grid;
   grid-gap: calc(var(--gutter) / 6);
   // grid-template-columns: 10px auto auto 10px;
-  grid-template-columns: 10px repeat(99, calc(100% - var(--gutter) * 2)) 10px;
+  // grid-template-columns: 10px repeat(99, calc(100% - var(--gutter) * 2)) 10px;
   grid-template-rows: minmax(150px, 1fr);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
+-ms-overflow-style: none;
+overflow: -moz-scrollbars-none;
+}
+
+.hss::-webkit-scrollbar {
+  display: none;
 }
 
 .hss:before,

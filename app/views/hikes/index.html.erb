@@ -1,93 +1,77 @@
-<head>
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-</head>
-    <%= render 'shared/navbarhome' %>
-<div id="progressBarPage">
-<div id="fountainG">
-  <div id="fountainG_1" class="fountainG"></div>
-  <div id="fountainG_2" class="fountainG"></div>
-  <div id="fountainG_3" class="fountainG"></div>
-  <div id="fountainG_4" class="fountainG"></div>
-  <div id="fountainG_5" class="fountainG"></div>
-  <div id="fountainG_6" class="fountainG"></div>
-  <div id="fountainG_7" class="fountainG"></div>
-  <div id="fountainG_8" class="fountainG"></div>
-</div>
-<div id="myProgress">
-  <div id="myBar">
-</div>
-</div>
-</div>
 
-<div class="choose-perfect">
-  <h1>CHOOSE THE <br>PERFECT <br><span style="text-decoration: underline #EF7E56">HIKE FOR YOU</h1>
-</div>
+<%= render 'shared/navbarhome' %>
+<div class="hideme">
+  <div class="choose-perfect">
+    <h1>CHOOSE THE <br>PERFECT <br><span style="text-decoration: underline #EF7E56">HIKE FOR YOU</h1>
+  </div>
 
-
-      <div class="search form-inline-hike">
-        <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
+  <div class="search form-inline-hike">
+    <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
         <%= text_field_tag( :city, params[:city], class: "search-index", placeholder: "City")%>
-         <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Difficulty Level", class: "form-control form-dropdown"}%>
+        <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Difficulty Level", class: "form-control form-dropdown"}%>
         <%= select_tag :distance, options_for_select([100, 150, 200, 150], params[:distance]), {:include_blank => "Distance", class: "form-control form-dropdown"}%>
-    </div>
-      <div class="bouton-index">
         <%= submit_tag( "Search" , class: "btn-index") %>
       <% end %>
-      </div>
-
-        <div
-          id="map"
-          style="width: 100%;
-          height: 292px;"
+  </div>
+</div>
+<div id="map" style="width: 100%; height: 292px;"
           data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-        >
-      </div>
-
-    <div class="container slide-show">
-      <div class="full hide-scroll">
-      <h1>Hikes</h1>
-      <ul class="hs">
+<div class="container slide-show">
+  <div class="full hide-scroll">
+    <h1>Hikes</h1>
+    <ul class="hs targetDiv">
       <% @hikes.each do |hike| %>
         <li class="item">
-        <%= link_to(hike_path(hike.id)) do %>
-        <%= cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo") %>
-          <h4 class="hike-name"><%= hike.name.capitalize %></h4>
-          <div class="hike-infos">
-          <ul>
-            <li>
-            <%=image_tag("trekking.svg", class: "hike-icon") %> <span><%= hike.category.capitalize %></span>
-            </li>
-            <li>
-            <%=image_tag("clock.svg", class: "hike-icon") %>
-            <span>
-              <% if hike.length < 60 %>
-              <%= hike.length %> mins
-              <% elsif (hike.length >= 60 && hike.length % 60 == 0) %>
-              <p><%= hike.length / 60 %> hrs</p>
-              <% else %>
-              <%=  hike.length / 60 %> hrs and <%= hike.length % 60 %> mins
-              <% end %>
-              <% unless current_user.nil? %>
-                <% if Favourite.find_favourites(current_user.id, hike.id).empty? %>
-                  <%= image_tag('likee.svg', class: "hike-icon") %>
-                <% else %>
-                  <%= image_tag('like.svg', class: "hike-icon") %>
-                <% end %>
-              <% end %>
-            </span>
-            </li>
-            <li>
-            <%=image_tag("distance.svg", class: "hike-icon") %><span><%= hike.km %>km</span>
-            </li>
-            </ul>
-            <% end %>
+          <%= link_to(hike_path(hike.id), style: "background-image: url('#{image_url(hike.photo)}');height: 280px;background-size: cover;background-position: bottom;border-radius: 25px;") do %>
+            <%# cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo") %>
+            <h4 class="hike-name"><%= hike.name.capitalize %></h4>
           <% end %>
-        </div>
-      </div>
-      </li>
-      </ul>
-    </div>
+          <div class="hike-infos">
+            <div class="icon-left">
+              <p>
+                <%=image_tag("trekking.svg", class: "hike-icon") %>
+                <%= hike.category.capitalize %>
+              </p>
+              <p>
+                <%=image_tag("clock.svg", class: "hike-icon") %>
+                <% if hike.length < 60 %>
+                  <%= hike.length %> mins
+                <% elsif (hike.length >= 60 && hike.length % 60 == 0) %>
+                  <%= hike.length / 60 %> hrs
+                <% else %>
+                  <%=  hike.length / 60 %> hrs and <%= hike.length % 60 %> mins
+                <% end %>
+              </p>
+              <p>
+                <%=image_tag("distance.svg", class: "hike-icon") %>
+                <%= hike.km %>km
+              </p>
+            </div>
+            <div class="icon-heart">
+              <div id="show-icon" class="show-icon">
+                <% unless current_user.nil? %>
+                <%= render 'favourites/form', hike: hike, favourite: @favourite %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
 
+  const setGrids = (count) => {
+    const element = document.querySelector('.targetDiv');
+    element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
+
+  }
+  window.onload = setGrids(<%= @hikes.count %>);
+
+
+</script>
+<%= javascript_pack_tag "fade" %>

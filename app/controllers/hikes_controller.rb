@@ -3,6 +3,7 @@ class HikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @favourite = Favourite.new
     @hikes = Hike.where.not(latitude: nil, longitude: nil)
     if params[:query].present?
       hike_query = "name ILIKE :query OR description ILIKE :query"

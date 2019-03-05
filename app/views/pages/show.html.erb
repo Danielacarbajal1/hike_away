@@ -1,14 +1,15 @@
 <%= render 'shared/navbarprofile' %>
 <div class="profile-container">
+<div class="hideme">
      <%= cl_image_tag(current_user.photo, width: 250, height: 250, crop: :thumb, class: "profile-pic") %>
 
      <div class="card-block">
       <p>
         <strong><%= current_user.first_name.capitalize %></strong>
       </p>
+</div>
      </div>
 </div>
-
 
 
 <div class="container scroll-review">

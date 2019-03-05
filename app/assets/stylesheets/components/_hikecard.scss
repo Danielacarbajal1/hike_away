@@ -18,6 +18,9 @@ margin-top: 43px;
 
 a:hover {
   text-decoration: none;
+  .hike-name {
+  background-color: #EF7E56;
+}
 }
 
 .hike-photo {
@@ -38,6 +41,9 @@ a:hover {
   font-size: 20px;
   text-align: center;
 }
+
+
+
 
 .hike-icon {
   height: 20px;
@@ -60,4 +66,6 @@ li {
 
 .hike-infos {
   margin-top: 10px;
+  display:flex;
+  justify-content: space-between;
 }
