@@ -92,6 +92,35 @@
     </div>
   <!-- END Content about Review form  -->
 
+  <!-- START photo form -->
+
+     <div class="modal fade" id="myModalPicture" role="dialog">
+      <div class=modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <% if current_user.present? %>
+            <h1 class="modal-title">Add Picture</h1>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <%= simple_form_for([@hike, @picture]) do |f| %>
+
+              <div>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+              </div>
+              <%= f.submit class: "btn btn-review" %>
+              <% end %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- END photo form -->
+
   <!-- START Content about what to bring ? -->
   <div class="container">
 
@@ -169,6 +198,19 @@
       </div>
     </div>
 </div>
+<div class="container slide-show">
+  <div class="full hide-scroll">
+      <% if @hike.pictures.present? %>
+      <ul class="hss">
+      <h1> Photo Gallery </h1>
+      <% @hike.pictures.each do |picture| %>
+    <!--   <img src="<%= picture.photo %>"> -->
+    <%= cl_image_tag picture.photo, class: "resize-picture" %>
+      <% end %>
+    <% end %>
+  </ul>
+  </div>
+</div>
 
 <div class="container slide-show">
   <div class="full hide-scroll">
@@ -202,6 +244,11 @@
       <% if current_user.present? %>
     <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
     <% end %>
+</div>
+<div class="review-btn">
+      <% if current_user.present? %>
+    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalPicture">ADD PHOTO</button>
+      <% end %>
 </div>
 
 
