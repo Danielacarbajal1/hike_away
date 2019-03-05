@@ -33,6 +33,7 @@ modalConfirm(function(confirm){
 function move() {
   var elem = document.getElementById("myBar");
   var width = 1;
+  if (elem) {
   var id = setInterval(frame, 10);
   function frame() {
     if (width >= 100) {
@@ -41,10 +42,11 @@ function move() {
     } else {
       width++;
       elem.style.width = width + '%';
+      }
     }
   }
 }
-window.onload(move() )
+window.onload = move()
 
 // event listener for each checkbox
 // on click, IF the checkbox is checked
@@ -65,6 +67,7 @@ const counter = document.querySelector("span.counter")
 console.log(counter)
 
 shoes.addEventListener('click', function () {
+  console.log("clickyerror!")
   if (shoes.checked) {
     // var progressShoes = document.getElementById("progress")
     count = count + 20
