@@ -3,9 +3,27 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 </head>
     <%= render 'shared/navbarhome' %>
+<div id="progressBarPage">
+<div id="fountainG">
+  <div id="fountainG_1" class="fountainG"></div>
+  <div id="fountainG_2" class="fountainG"></div>
+  <div id="fountainG_3" class="fountainG"></div>
+  <div id="fountainG_4" class="fountainG"></div>
+  <div id="fountainG_5" class="fountainG"></div>
+  <div id="fountainG_6" class="fountainG"></div>
+  <div id="fountainG_7" class="fountainG"></div>
+  <div id="fountainG_8" class="fountainG"></div>
+</div>
+<div id="myProgress">
+  <div id="myBar">
+</div>
+</div>
+</div>
+
 <div class="choose-perfect">
   <h1>CHOOSE THE <br>PERFECT <br><span style="text-decoration: underline #EF7E56">HIKE FOR YOU</h1>
 </div>
+
 
       <div class="search form-inline-hike">
         <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
