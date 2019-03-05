@@ -30,6 +30,21 @@ modalConfirm(function(confirm){
   }
 });
 
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    $('#progressBarPage').fadeOut("slow");
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+}
+window.onload(move() )
 
 // event listener for each checkbox
 // on click, IF the checkbox is checked
