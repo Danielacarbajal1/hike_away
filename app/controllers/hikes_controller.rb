@@ -28,12 +28,13 @@ class HikesController < ApplicationController
   def show
     @favourite = Favourite.new
     @review = Review.new
+    @picture = Picture.new
   end
 
   private
 
   def hike_params
-    params.require(:hike).permit(:query, :distance, :photo, :city, :category, :categories_attributes => :name)
+    params.require(:hike).permit(:query, :distance, :photo, :city, :category, :picture, :categories_attributes => :name)
   end
 
   def set_hike

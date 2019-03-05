@@ -72,6 +72,14 @@ hike = Hike.create!(
   description: "Mont Albert is a mountain in the Chic-Choc range in the Gaspésie National Park in the Gaspé Peninsula of eastern Quebec, Canada.
   At 1,151 m (3,776 ft), it is one of the highest mountains in southern Quebec, and is popular for hiking."
 )
+Picture.create!(
+  hike: hike,
+  photo: "https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+)
+Picture.create!(
+  hike: hike,
+  photo: "https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+)
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg",
