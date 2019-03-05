@@ -67,7 +67,6 @@ const counter = document.querySelector("span.counter")
 console.log(counter)
 
 shoes.addEventListener('click', function () {
-  console.log("clickyerror!")
   if (shoes.checked) {
     // var progressShoes = document.getElementById("progress")
     count = count + 20
