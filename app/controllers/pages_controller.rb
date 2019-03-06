@@ -14,9 +14,10 @@ class PagesController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @hikes_user = Hike.where(user_id: current_user)
-    @favourites_user = Favourite.where(user_id: current_user)
-    @reviews_user = Review.where(user_id: current_user)
+    @user = User.find(params[:id])
+    @pictures_user = Picture.where(user_id: @user)
+    @hikes_user = Hike.where(user_id: @user)
+    @favourites_user = Favourite.where(user_id: @user)
+    @reviews_user = Review.where(user_id: @user)
   end
 end

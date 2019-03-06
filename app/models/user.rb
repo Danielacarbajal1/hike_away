@@ -6,5 +6,6 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   has_many :favourites
   has_many :reviews
+  has_many :pictures
   validates :address, :first_name, :last_name, :photo, presence: true
 end
