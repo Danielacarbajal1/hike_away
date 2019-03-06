@@ -70,7 +70,7 @@
     element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
 
   }
-  window.onload = setGrids(<%= @hikes.count %>);
+  window.onload = setGrids(<%= @hikes.length %>);
 
 
 </script>
