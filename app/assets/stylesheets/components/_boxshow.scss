@@ -1,7 +1,7 @@
 .container-btns {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 12px;
   margin-top: 40px;
   margin-bottom: 20px;
 }
@@ -25,7 +25,6 @@ body {
 // }
 .show-photo {
   width: 100vw;
-  margin-top: 10px;
   box-shadow: 2px 4px 9px rgba(32, 36, 39, 0.56);
 }
 
@@ -56,7 +55,7 @@ body {
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  font-size: 22px;
+  font-size: 18px;
   color: #1B4057;
 }
 
@@ -71,17 +70,20 @@ body {
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  font-size: 16px;
-  color: #232121;
+  font-size: 20px;
+  color: #333333;
   margin-left: 28px;
   margin-right: 28px;
   margin-top: 18px;
+   text-align: justify;
+  text-justify: inter-word;
 }
 
 .what-bring-btn {
   color: #1B4057;
   border-style: solid;
   border-color: #1B4057;
+  border-radius: 10px;
   border-width: 2px;
   font-family: Playfair Display;
   font-style: normal;

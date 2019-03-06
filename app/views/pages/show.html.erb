@@ -3,19 +3,19 @@
      <%= cl_image_tag(@user.photo, width: 250, height: 250, crop: :thumb, class: "profile-pic") %>
 
 
-     <div class="card-block">
+    <div class="card-block">
       <p>
         <strong><%= @user.first_name.capitalize %></strong>
       </p>
-</div>
-     </div>
+    </div>
+  </div>
 </div>
 
 
 <div class="container scroll-review">
   <div class="full hide-scroll">
-    <h1>Favourites</h1>
-    <ul class="hsss">
+    <h1>Upcoming hikes</h1>
+    <ul class="hsss targetDiv">
       <% @favourites_user.each do |favourite| %>
     <li class="item">
         <%= link_to(hike_path(favourite.hike.id)) do %>
@@ -48,21 +48,14 @@
 </div>
 
 
-<h1>Reviews</h1>
-    <% @reviews_user.each do |review| %>
-  <div class="review-card">
-    <img class="review-avatar" src= <%= review.user.photo %> >
-    <h2> <%= review.user.first_name %></h2>
-    <h3><%= review.content %></h3>
-     <img class="review-avatar" src= <%= review.hike.photo %> >
-    <div class="rating-review">
-    <% review.stars.to_i.times do  %>
-    <span class="glyphicon glyphicon-star"></span>
-    <% end %>
-    <% review.blank_stars.to_i.times do %>
-    <span class="glyphicon glyphicon-star-empty"></span>
-    <% end %>
-    <button type="button" class="btn btn-link"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, hike_review_path(hike_id: review.hike.id, id: review.id), method: :delete, data: {confirm: "Are you sure you want to delete this review?"}  %></button>
-    </div>
-    </div>
-    <% end %>
+    <script type="text/javascript">
+
+  const setGrids = (count) => {
+    const element = document.querySelector('.targetDiv');
+    element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
+
+  }
+  window.onload = setGrids(<%= @favourites_user.count %>);
+
+
+</script>
