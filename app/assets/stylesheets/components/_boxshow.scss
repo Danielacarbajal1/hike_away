@@ -55,7 +55,7 @@ body {
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  font-size: 22px;
+  font-size: 18px;
   color: #1B4057;
 }
 
@@ -70,11 +70,13 @@ body {
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  font-size: 22px;
-  color: #696969;
+  font-size: 20px;
+  color: #333333;
   margin-left: 28px;
   margin-right: 28px;
   margin-top: 18px;
+   text-align: justify;
+  text-justify: inter-word;
 }
 
 .what-bring-btn {

@@ -30,6 +30,7 @@
     <!-- /show-card-white -->
 
   <div class="show-description">
+    <p><strong>Description</strong></p>
     <p><%= @hike.description.capitalize %></p>
   </div>
 
@@ -41,7 +42,7 @@
   </div>
 
   <!-- START Content about Review form  -->
-  <div class="container">
+  <div class="containers">
     <!-- Modal -->
     <div class="modal fade" id="myModalReviews" role="dialog">
       <div class=modal-dialog">
@@ -112,7 +113,7 @@
   <!-- END photo form -->
 
   <!-- START Content about what to bring ? -->
-  <div class="container">
+  <div class="containers">
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -224,7 +225,7 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <div class="container slide-show">
+  <div class="containers slide-show">
     <div class="full hide-scroll">
       <% if @hike.pictures.present? %>
       <ul class="hss">

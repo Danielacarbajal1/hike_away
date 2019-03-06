@@ -78,7 +78,19 @@ ul {
   max-width: 100vw;
 }
 
+
+
+
+
+
+
+
+
+
 /* REVIEWS SCROLL */
+:roots {
+  --gutters: 60px;
+}
 
 .hss > li, .item {
   scroll-snap-align: center;
@@ -90,7 +102,7 @@ ul {
 
 .hss {
   display: grid;
-  grid-gap: calc(var(--gutter) / 6);
+  grid-gap: calc(var(--gutters) / 6);
   // grid-template-columns: 10px auto auto 10px;
   // grid-template-columns: 10px repeat(99, calc(100% - var(--gutter) * 2)) 10px;
   grid-template-rows: minmax(150px, 1fr);
@@ -116,6 +128,16 @@ overflow: -moz-scrollbars-none;
   margin-right: auto;
   max-width: 100vw !important;
 }
+
+
+
+
+
+
+
+
+
+
 
 /* PROFILE SCROLL */
 

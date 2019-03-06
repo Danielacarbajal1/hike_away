@@ -31,7 +31,7 @@
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+
   border-top: 1px solid #ccc;
 
 }
@@ -53,3 +53,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.review-btn:hover {
+    color: #EF7E56;
+  }
