@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :index, :create, :edit, :update, :show, :destroy]
   resources :pictures, only: [:create]
   end
+  resources :pictures, only: [:destroy]
   resources :pages
 end

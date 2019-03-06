@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
+Picture.destroy_all
 Favourite.destroy_all
 Review.destroy_all
 User.destroy_all
@@ -72,14 +73,19 @@ hike = Hike.create!(
   description: "Mont Albert is a mountain in the Chic-Choc range in the Gaspésie National Park in the Gaspé Peninsula of eastern Quebec, Canada.
   At 1,151 m (3,776 ft), it is one of the highest mountains in southern Quebec, and is popular for hiking."
 )
-Picture.create!(
+picture1 = Picture.new(
   hike: hike,
-  photo: "https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  user: claireUser
 )
-Picture.create!(
+picture1.remote_photo_url = "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg"
+picture1.save!
+
+picture2 = Picture.new(
   hike: hike,
-  photo: "https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  user: joeUser
 )
+picture2.remote_photo_url = "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg"
+picture2.save!
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg",
