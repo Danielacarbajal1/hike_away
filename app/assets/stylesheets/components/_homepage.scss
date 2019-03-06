@@ -18,7 +18,7 @@
   text-indent: 8px;
   color: #565656;
   position: absolute;
-  top: 160px;
+  top: 111px;
   left: 23px;
 }
 
@@ -31,7 +31,7 @@
   font-size: 18px;
   color: #EF7E56;
   position: absolute;
-  top: 150px;
+  top: 98px;
   left: 135px;
 }
 
@@ -57,6 +57,11 @@
   background-color: transparent;
   margin-top: 30px;
   margin-bottom: 20px;
+}
+
+.explore-btn-home:hover {
+  border-color: #EF7E56;
+  color: #EF7E56;
 }
 
 .search-home {
@@ -95,3 +100,4 @@ input:focus {
   display: flex;
   justify-content: center;
 }
+

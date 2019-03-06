@@ -1,0 +1,26 @@
+.zoom{
+  overflow: hidden;
+  padding-bottom: 55%;
+  padding-top: 40px;
+}
+.zoom img{
+  position: fixed;
+  left: 50%;
+  max-width: 200%;
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+  .content {
+    height: 100%;
+    text-align: justify;
+  }
+  .zoom{
+    overflow: hidden;
+    padding-bottom: 130%;
+  }
+
+main{
+  position: relative;
+  background: #ffffff;
+}

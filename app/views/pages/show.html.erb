@@ -2,13 +2,14 @@
 <div class="profile-container">
      <%= cl_image_tag(@user.photo, width: 250, height: 250, crop: :thumb, class: "profile-pic") %>
 
+
      <div class="card-block">
       <p>
         <strong><%= @user.first_name.capitalize %></strong>
       </p>
+</div>
      </div>
 </div>
-
 
 
 <div class="container scroll-review">
