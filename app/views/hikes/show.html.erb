@@ -1,37 +1,33 @@
     <%= render 'shared/navbar' %>
 
 <div class="app-container">
-  <div class="row title-row">
-
-    <div class="box-blue"></div>
-    <div class="show-name"><%= @hike.name.capitalize %></div>
-
-
-  <div class="zoom">
-  <%= cl_image_tag(@hike.photo, crop: :fill, class: "show-photo") if @hike.photo.present? %>
-  </div>
-  </div>
-  <main role="main">
-  <div class="content hidemee">
-  <div class="show-info">
-    <div class="show-category">
-      <p><%= @hike.city %></p>
-      <% if @hike.length < 60 %>
-      <%= @hike.length %> mins
-      <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
-      <p><%= @hike.length / 60 %> hrs</p>
-      <% else %>
-      <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
-      <% end %>
-      <p><%= @hike.km %>km</p>
+    <div class="hike-image" style= "background-image: url('<%=image_url(@hike.photo)%>');height: 60vh;background-size: cover;background-position: bottom; position: relative" >
     </div>
 
-    <div id="show-icon" class="show-icon">
-      <% unless current_user.nil? %>
-      <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
-      <% end %>
+    <div class="show-card-white">
+        <div class="content hidemeez">
+          <div class="show-info">
+            <div class="show-category">
+              <p><strong><%= @hike.name.capitalize %></strong></p>
+              <p><%= @hike.city %></p>
+              <% if @hike.length < 60 %>
+              <%= @hike.length %> mins
+              <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
+              <p><%= @hike.length / 60 %> hrs</p>
+              <% else %>
+              <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
+              <% end %>
+              <p><%= @hike.km %>km</p>
+            </div>
+            <div id="show-icon" class="show-icon">
+              <% unless current_user.nil? %>
+                <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
+              <% end %>
+            </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <!-- /show-card-white -->
 
   <div class="show-description">
     <p><%= @hike.description.capitalize %></p>
@@ -46,29 +42,16 @@
 
   <!-- START Content about Review form  -->
   <div class="container">
-
     <!-- Modal -->
     <div class="modal fade" id="myModalReviews" role="dialog">
       <div class=modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
-
           <div class="modal-header">
             <% if current_user.present? %>
             <h1 class="modal-title">Add review</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-             <!--  <img class="review-avatar" src= >
-
-              <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
-              <input type="name" id="defaultForm-review" class="form-control validate">
-
-              <i class="far fa-comments"></i>
-              <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
-              <input type="comment" id="defaultForm-review" class="form-control validate"> -->
-  <%= simple_form_for([@hike, @review]) do |f| %>
-
+            <%= simple_form_for([@hike, @review]) do |f| %>
               <div>
                 <img class="review-avatar" src= <%= current_user.photo %> >
                 <h1><strong><%= current_user.first_name.capitalize %></strong></h1>
@@ -169,8 +152,6 @@
       <div class="alert" role="alert" id="result"></div>
     </div>
 
-    <div class="test-1">
-
       <!-- Modal -->
       <div class="modal fade" id="myDirections" role="dialog">
         <div class="modal-dialog">
@@ -204,65 +185,76 @@
         </div>
       </div>
     </div>
-</div>
-<div class="container slide-show">
-  <div class="full hide-scroll">
-      <% if @hike.pictures.present? %>
-      <ul class="hss">
-      <h1> Photo Gallery </h1>
-      <% @hike.pictures.each do |picture| %>
-    <!--   <img src="<%= picture.photo %>"> -->
-    <%= cl_image_tag picture.photo, class: "resize-picture" %>
-      <% end %>
-    <% end %>
-  </ul>
   </div>
+
+
+
+<!-- Tab links -->
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Reviews</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Photos</button>
 </div>
 
-<div class="slide-show">
-  <div class="full hide-scroll">
-    <h1>Reviews</h1>
-    <ul class="hss targetDiv">
-      <% @hike.reviews.each do |review| %>
-      <li class="items">
-        <div class="review-card">
-          <img class="review-avatar" src= <%= review.user.photo %> >
-          <h2> <%= review.user.first_name %></h2>
-          <h3><%= review.content %></h3>
-          <div class="rating-review">
-            <% review.stars.to_i.times do  %>
-            <span class="glyphicon glyphicon-star"></span>
-            <% end %>
-            <% review.blank_stars.to_i.times do %>
-            <span class="glyphicon glyphicon-star-empty"></span>
-            <% end %>
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+  <div class="slide-show">
+    <div class="full hide-scroll">
+      <ul class="hss targetDiv">
+        <% @hike.reviews.each do |review| %>
+        <li class="items">
+          <div class="review-card">
+            <img class="review-avatar" src= <%= review.user.photo %> >
+            <h2> <%= review.user.first_name %></h2>
+            <h3><%= review.content %></h3>
+            <div class="rating-review">
+              <% review.stars.to_i.times do  %>
+              <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+              <% review.blank_stars.to_i.times do %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+            </div>
           </div>
-        </div>
-
-      </li>
-      <% end %>
-    </ul>
-      </div>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
 
-<div class="review-btn">
-      <% if current_user.present? %>
-    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
-    <% end %>
-</div>
-<div class="review-btn">
-      <% if current_user.present? %>
-    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalPicture">ADD PHOTO</button>
-      <% end %>
+<div id="Paris" class="tabcontent">
+  <div class="container slide-show">
+    <div class="full hide-scroll">
+      <% if @hike.pictures.present? %>
+      <ul class="hss">
+        <h1> Photo Gallery </h1>
+        <% @hike.pictures.each do |picture| %>
+        <!--   <img src="<%= picture.photo %>"> -->
+          <%= cl_image_tag picture.photo, class: "resize-picture" %>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 
+</div>
+<div class="icon-div">
+  <div class="review-btn">
+      <% if current_user.present? %>
+      <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#myModalReviews"></i>
+    <% end %>
   </div>
-</main>
+      <div class="review-btn">
+        <% if current_user.present? %>
+          <i class="fas fa-camera" data-toggle="modal" data-target="#myModalPicture"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 <script type="text/javascript">
-
   const setGrids = (count) => {
     const element = document.querySelector('.targetDiv');
     console.log('loaded the view')
@@ -274,8 +266,6 @@
 
   }
   window.onload = setGrids(<%= @hike.reviews.count %>);
-
-
 </script>
 
 <script>
@@ -327,8 +317,34 @@
       activateStars(0, "temp-active-star")
     })
   })
+
+
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+
 </script>
 
 <%= javascript_pack_tag "zoom" %>
 <%= javascript_pack_tag "fade" %>
 <%= javascript_pack_tag "checkbox" %>
+<%= javascript_pack_tag "tabs" %>
