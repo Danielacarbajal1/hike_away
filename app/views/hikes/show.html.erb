@@ -1,4 +1,9 @@
-    <%= render 'shared/navbar' %>
+
+<% content_for :meta_title, "#{@hike.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @hike.description %>
+<% content_for :meta_image, cl_image_path(@hike.photo) %>
+
+<%= render 'shared/navbar' %>
 
 <div class="app-container">
   <div class="hike-image" style= "background-image: url('<%=image_url(@hike.photo)%>');height: 60vh;background-size: cover;background-position: bottom; position: relative" >
