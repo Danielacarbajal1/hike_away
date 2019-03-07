@@ -198,7 +198,7 @@ goodhike = Hike.new(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4725-Modifier.jpg",
   name: "La Chouenne",
   city: "Parc National des Grands-Jardins",
-  category: "Intermediate",
+  category: "Easy",
   length: 2,
   km: 4.8,
   description: "Trail giving access to a summit of 730 m of altitude.
@@ -223,7 +223,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2377.jpg",
   name: "Le manitou",
   city: "Mont-Tremblant \nNational Park",
-  category: "Easy",
+  category: "Intermediate",
   length: 1,
   km: 0.6,
   description: "Trail for all skill levels Spectacular view from 360°Observation Tower"
@@ -244,7 +244,7 @@ badhike = Hike.new(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_6715-2.jpg",
   name: "Sentier des loups",
   city: "Jacques Cartier \nNational Park",
-  category: "Advanced",
+  category: "Easy",
   length: 4,
   km: 11,
   description: "Breathtaking! See the most striking fractures massive Laurentians: the spectacular valleys of the Jacques Cartier and Sautauriski"
@@ -302,7 +302,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2380.jpg",
   name: "Sentier des Chutes",
   city: "Saguenay Fjord \nNational Park",
-  category: "Easy",
+  category: "Advanced",
   length: 3,
   km: 5,
   description: "The White Falls Trail runs through a deciduous forest dotted with tall white pines.
@@ -313,7 +313,7 @@ Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/luc-tribolet-748526-unsplash.jpg",
   name: "Le Calvaire d'Oka",
   city: "Oka National Park",
-  category: "Easy",
+  category: "Intermediate",
   length: 2,
   km: 4.4,
   description: "The Calvary of Oka is a way of cross formed of seven towers erected between 1740 and 1742.
@@ -324,7 +324,7 @@ Hike.create!(
   photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121177/IMG_1435-2.jpg",
   name: "L'Étang Fer de Lance",
   city: "Mount Orford \nNational Park",
-  category: "Easy",
+  category: "Intermediate",
   length: 1,
   km: 3.5,
   description: "A pleasant walk in a maple grove leading you to a belvedere offering a superb panorama of the Mont Orford massif and the pond Fer-de-Lance."
