@@ -37,13 +37,7 @@
               </p>
               <p>
                 <%=image_tag("clock.svg", class: "hike-icon") %>
-                <% if hike.length < 60 %>
-                  <%= hike.length %> mins
-                <% elsif (hike.length >= 60 && hike.length % 60 == 0) %>
                   <%= hike.length / 60 %> hrs
-                <% else %>
-                  <%=  hike.length / 60 %> hrs and <%= hike.length % 60 %> mins
-                <% end %>
               </p>
               <p>
                 <%=image_tag("distance.svg", class: "hike-icon") %>

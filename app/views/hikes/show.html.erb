@@ -25,13 +25,7 @@
               <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
                 <div class="show-length" 'text-center'>
                     <%=image_tag("clock.svg", class: "hike-icons") %>
-                  <% if @hike.length < 60 %>
-                    <p><%= @hike.length %> mins</p>
-                  <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
-                    <p><%= @hike.length / 60 %> hrs</p>
-                  <% else %>
-                    <p><%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins</p>
-                  <% end %>
+                    <p><%= @hike.length %> hours</p>
                 </div>
               </div>
               <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
