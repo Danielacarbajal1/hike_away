@@ -118,7 +118,6 @@ sunscreen.addEventListener('click', function () {
     count = count + (100 / 7)
     console.log("Your hat is checked")
 
-
   } else {
     // var dontProgresshat = document.getElementById("dontProgress")
     count = count - (100 / 7)
