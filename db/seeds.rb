@@ -75,14 +75,16 @@ hike = Hike.create!(
 )
 picture1 = Picture.new(
   hike: hike,
-  user: claireUser
+  user: claireUser,
+  description: "Test"
 )
 picture1.remote_photo_url = "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg"
 picture1.save!
 
 picture2 = Picture.new(
   hike: hike,
-  user: joeUser
+  user: joeUser,
+  description: "test2"
 )
 picture2.remote_photo_url = "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg"
 picture2.save!
