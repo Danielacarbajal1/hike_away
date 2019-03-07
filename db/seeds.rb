@@ -90,7 +90,7 @@ picture2.save!
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg",
   name: "Mont du Lac des Cygnes",
-  city: "Grand Jardins \nNational Park",
+  city: "Parc National des Grands-Jardins",
   category: "Intermediate",
   length: 300,
   km: 11.4,
@@ -98,17 +98,6 @@ Hike.create!(
   This 980-meter-high summit overlooking the Gouffre River Valley is one of the main attractions of the Grands-Jardins National Park."
 )
 
-Hike.create!(
-  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4725-Modifier.jpg",
-  name: "La Chouenne",
-  city: "Grand Jardins \nNational Park",
-  category: "Intermediate",
-  length: 120,
-  km: 4.8,
-  description: "Trail giving access to a summit of 730 m of altitude.
-  Magnificent views of the valley and the facade of the Gros Bras mountain.
-  A dazzling show from the first kilometer of hiking."
-)
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121149/hautes-gorges.jpg",
@@ -123,6 +112,18 @@ Hike.create!(
 )
 
 Hike.create!(
+  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4725-Modifier.jpg",
+  name: "La Chouenne",
+  city: "Parc National des Grands-Jardins",
+  category: "Intermediate",
+  length: 120,
+  km: 4.8,
+  description: "Trail giving access to a summit of 730 m of altitude.
+  Magnificent views of the valley and the facade of the Gros Bras mountain.
+  A dazzling show from the first kilometer of hiking."
+)
+
+Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121152/ura-druchuk-1144555-unsplash.jpg",
   name: "Sentier de l’Éperon",
   city: "Jacques Cartier \nNational Park",
@@ -133,15 +134,6 @@ Hike.create!(
   Exceptional views on the landscape of the valley. Also discover the rich history of the park with 5 panels Discovery"
 )
 
-Hike.create!(
-  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_6715-2.jpg",
-  name: "Sentier des loups",
-  city: "Jacques Cartier \nNational Park",
-  category: "Advanced",
-  length: 240,
-  km: 11,
-  description: "Breathtaking! See the most striking fractures massive Laurentians: the spectacular valleys of the Jacques Cartier and Sautauriski"
-)
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2377.jpg",
@@ -162,6 +154,16 @@ Hike.create!(
   km: 6.7,
   description: "The sector of Pimbina offers, it seems, almost always better snow conditions and more perceptible tranquility than in the sector of the Devil.
   The beautiful L'Envol trail is a fine example of the area's treasures with its belvedere and its beautiful snowy undergrowth."
+)
+
+Hike.create!(
+  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_6715-2.jpg",
+  name: "Sentier des loups",
+  city: "Jacques Cartier \nNational Park",
+  category: "Advanced",
+  length: 240,
+  km: 11,
+  description: "Breathtaking! See the most striking fractures massive Laurentians: the spectacular valleys of the Jacques Cartier and Sautauriski"
 )
 
 Hike.create!(
