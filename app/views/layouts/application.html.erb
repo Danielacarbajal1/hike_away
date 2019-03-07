@@ -5,6 +5,10 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <% content_for :meta_title, "#{@offer.name} is on #{APPLICATION_META["meta_product_name"]}" %>
+    <% content_for :meta_description, @offer.description %>
+    <% content_for :meta_image, cl_image_path(@offer.photo.path) %>
+
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -26,7 +30,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <meta name="og:image" content="">
+    <meta name="og:image" content="https://images.unsplash.com/photo-1486068720048-47715511ce71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
 
     <title>Hike Away | Find the perfect hike for you.</title>
     <%= csrf_meta_tags %>
