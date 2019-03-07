@@ -9,7 +9,7 @@
     <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
         <%= text_field_tag( :city, params[:city], class: "search-index", placeholder: "City")%>
         <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Difficulty Level", class: "form-control form-dropdown"}%>
-        <%= select_tag :distance, options_for_select([100, 150, 200, 150], params[:distance]), {:include_blank => "Distance", class: "form-control form-dropdown"}%>
+        <%= select_tag :distance, options_for_select([100, 150, 200, 250], params[:distance]), {:include_blank => "Distance", class: "form-control form-dropdown"}%>
         <%= submit_tag( "Search" , class: "btn-index") %>
       <% end %>
   </div>
@@ -27,7 +27,7 @@
         <li class="item">
           <%= link_to(hike_path(hike.id), style: "background-image: url('#{image_url(hike.photo)}');height: 280px;background-size: cover;background-position: bottom;border-radius: 25px;") do %>
             <%# cl_image_tag(hike.photo, height: 236, width: 248, crop: :fill, class: "hike-photo") %>
-            <h4 class="hike-name"><%= hike.name.capitalize %></h4>
+            <h4 class="hike-name"><%= hike.name %></h4>
           <% end %>
           <div class="hike-infos">
             <div class="icon-left">
@@ -37,13 +37,7 @@
               </p>
               <p>
                 <%=image_tag("clock.svg", class: "hike-icon") %>
-                <% if hike.length < 60 %>
-                  <%= hike.length %> mins
-                <% elsif (hike.length >= 60 && hike.length % 60 == 0) %>
                   <%= hike.length / 60 %> hrs
-                <% else %>
-                  <%=  hike.length / 60 %> hrs and <%= hike.length % 60 %> mins
-                <% end %>
               </p>
               <p>
                 <%=image_tag("distance.svg", class: "hike-icon") %>

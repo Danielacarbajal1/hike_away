@@ -13,9 +13,9 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/danielaamyot/cjsnktodi0p6j1fqgrdh6p249',
+      style: 'mapbox://styles/mapbox/outdoors-v9',
       center: [-71.21454, 46.81228],
-      zoom: 4.0
+      zoom: 5.0
     });
       const markers = JSON.parse(mapElement.dataset.markers);
   markers.forEach((marker) => {
@@ -25,12 +25,27 @@ const initMapbox = () => {
   element.style.backgroundSize = 'contain';
   element.style.width = '50px';
   element.style.height = '50px';
+const container = document.querySelector(".targetDiv");
+const hikeCard = document.querySelector("li.item");
 
+let previousCenteredHikeCardIndex = 0;
 
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // <-- add this
+container.addEventListener("scroll", () => {
+ const centerScreensScrollDistanceFromLeft = (container.scrollLeft + (hikeCard.clientWidth / 2));
+ const currentCenteredHikeCardIndex = Math.floor(centerScreensScrollDistanceFromLeft / hikeCard.clientWidth);
+
+ if (previousCenteredHikeCardIndex !== currentCenteredHikeCardIndex) {
+   previousCenteredHikeCardIndex = currentCenteredHikeCardIndex;
+   const correspondingMarker = markers[currentCenteredHikeCardIndex];
+   if (map.isMoving()) { map.stop(); }
+   map.flyTo({ center: [correspondingMarker.lng, correspondingMarker.lat], zoom: 6 });
+ }
+});
+
+    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // <-- add this
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
+      // .setPopup(popup)
       .addTo(map);
       fitMapToMarkers(map, markers);
   });
