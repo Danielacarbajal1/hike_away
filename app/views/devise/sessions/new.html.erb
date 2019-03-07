@@ -4,17 +4,15 @@
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
-              <%= f.input :email,
+           <%= f.input :email,
                 required: false,
+                label: false,
                 autofocus: true,
-                input_html: { autocomplete: "email", :class=> "search-email" }, label: false %>
-      <%= f.input :password,
+                input_html: { autocomplete: "email", class: "search-email", placeholder: "Email"} %>
+            <%= f.input :password,
                 required: false,
-                input_html: { autocomplete: "current-password", :style=> 'width: 500px' } %>
-
-        <%= text_field_tag( :email, params[:email], class: "search-email", placeholder: "Email")%>
-        <%= text_field_tag( :password, params[:password], class: "search-password", placeholder: "Password")%>
-      </div>
+                label:false,
+                input_html: { autocomplete: "current-password", class: "search-password",  placeholder: "Password" } %>
   <div class="form-actions">
     <%= f.button :submit, "LOG IN" %>
   </div>
