@@ -246,14 +246,19 @@
 <div id="Paris" class="tabcontent">
   <div class="slide-show">
     <div class="full hide-scroll">
-      <ul class="hss targetDiv">
+      <ul class="hs targetDiv">
       <% if @hike.pictures.present? %>
         <% @hike.pictures.each do |picture| %>
         <li class="items">
-          <%= cl_image_tag( picture.photo, width: 300, height: 350, class: "scroll-picture") %>
-          <%= picture.description %>
+          <div class="scroll-picture" style= "background-image: url('<%=image_url(picture.photo)%>');height: 45vh; width: 250px;background-size: cover; position: relative" >
+            <div class="avatar-background">
+          <%= cl_image_tag(picture.user.photo, width: 45, height: 45, crop: :thumb, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle": "dropdown") %>
+          <%= picture.user.first_name %>
+          </div>
+            <p><%= picture.description %></p>
+          </div>
           <% end %>
-        </li>
+          </li>
         <% end %>
       </ul>
     </div>
