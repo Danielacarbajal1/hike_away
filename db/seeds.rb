@@ -27,7 +27,7 @@ seanUser = User.new(
   first_name: "Sean",
   last_name: "Kong",
   email: "seankong@gmail.com",
-  address: "123 rue des forges H3H 2S4 Paris, France",
+  address: "15 Eden Park Rd, M4B 3C3, Toronto, Canada",
   password: "000000"
 )
  seanUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "sean-kong-291651-unsplash.jpg"
@@ -37,7 +37,7 @@ michaelUser = User.new(
   first_name: "Micheal",
   last_name: "Frattaroli",
   email: "michealfrattaroli@gmail.com",
-  address: "5333 Casgrain 2G2 K9K, Montréal, Canada",
+  address: "15 Sunnylea K9K 2G2, Peterborough, Canada",
   password: "000000"
 )
   michaelUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "michael-frattaroli-234665-unsplash.jpg"
@@ -47,7 +47,7 @@ joeUser = User.new(
   first_name: "Joe",
   last_name: "Robles",
   email: "joerobles@gmail.com",
-  address: "1000 avenue Amesbury F8H 1J9, Pondichery, Inde",
+  address: "1000 avenue Amesbury H3Z 1J9, Montreal, Canada",
   password: "000000"
 )
   joeUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-robles-602630-unsplash.jpg"
@@ -57,7 +57,7 @@ claireUser = User.new(
   first_name: "Claire",
   last_name: "Skies",
   email: "claireskies@sharklasers.com",
-  address: "5333 Casgrain 2G2 K9K, Montréal, Canada",
+  address: "5333 Casgrain H2T 1X3, Montréal, Canada",
   password: "passwordcanbechangedlater"
 )
   claireUser.remote_photo_url = Cloudinary::Utils.cloudinary_url "joe-gardner-74378-unsplash.jpg"
@@ -195,7 +195,7 @@ Hike.create!(
   km: 10.7,
   description: "Mont Mégantic is a monadnock located in Québec, Canada, about 15 km north of the border between Québec and the U.S. states of Maine and New Hampshire.
   Mégantic is on the border of the regional county municipalities of Le Granit and Le Haut-Saint-François. Its summit is the highest point of the latter.
-  Many geologists believe that Mont Mégantic is a member of the Monteregian Hills formed by the New England hotspot, as it has the same mechanism and depth of intrusion."
+  Many geologists believe that Mont Mégantic is a member of the Monteregian Hills formed by the New England hot-spot, as it has the same mechanism and depth of intrusion."
 )
 
 Hike.create!(
