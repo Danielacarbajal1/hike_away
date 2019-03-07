@@ -13,9 +13,9 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/danielaamyot/cjsnktodi0p6j1fqgrdh6p249',
+      style: 'mapbox://styles/mapbox/outdoors-v9',
       center: [-71.21454, 46.81228],
-      zoom: 4.0
+      zoom: 5.0
     });
       const markers = JSON.parse(mapElement.dataset.markers);
   markers.forEach((marker) => {
