@@ -1,7 +1,7 @@
 
 <% content_for :meta_title, "#{@hike.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @hike.description %>
-<% content_for :meta_image, cl_image_path(@hike.photo.path) %>
+<% content_for :meta_image, cl_image_path(@hike.photo) %>
 
 <%= render 'shared/navbar' %>
 
