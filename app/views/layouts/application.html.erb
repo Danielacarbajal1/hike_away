@@ -5,6 +5,10 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <% content_for :meta_title, "#{@offer.name} is on #{APPLICATION_META["meta_product_name"]}" %>
+    <% content_for :meta_description, @offer.description %>
+    <% content_for :meta_image, cl_image_path(@offer.photo.path) %>
+
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
