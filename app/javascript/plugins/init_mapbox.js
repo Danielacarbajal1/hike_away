@@ -42,10 +42,10 @@ container.addEventListener("scroll", () => {
  }
 });
 
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // <-- add this
+    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // <-- add this
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
+      // .setPopup(popup)
       .addTo(map);
       fitMapToMarkers(map, markers);
   });
