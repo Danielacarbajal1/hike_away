@@ -51,19 +51,20 @@ body {
 }
 
 .show-category {
-  font-family: 'Playfair Display', serif;
+  padding: 10px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  font-size: 18px;
+  font-size: 25px;
   color: #1B4057;
 }
 
-.show-info {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
+// .show-info {
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 10px;
+// }
 
 .show-description {
   font-family: 'Lato', sans-serif;

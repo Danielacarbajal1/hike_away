@@ -9,30 +9,34 @@
           <div class="show-info">
             <div class="show-category">
               <p><strong><%= @hike.name.capitalize %></strong></p>
-              <p><%= @hike.city %></p>
-              <% if @hike.length < 60 %>
-              <%= @hike.length %> mins
-              <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
-              <p><%= @hike.length / 60 %> hrs</p>
-              <% else %>
-              <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
-              <% end %>
-              <p><%= @hike.km %>km</p>
-            </div>
+              <h4><%= @hike.city %></h4>
             <div id="show-icon" class="show-icon">
               <% unless current_user.nil? %>
                 <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
               <% end %>
             </div>
+                <%=image_tag("trekking.svg", class: "hike-icon") %>
+                <%= @hike.category.capitalize %>
+              <% if @hike.length < 60 %>
+              <%= @hike.length %> mins
+              <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
+              <%=image_tag("clock.svg", class: "hike-icon") %>
+              <%= @hike.length / 60 %> hrs
+              <% else %>
+              <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
+              <% end %>
+              <%=image_tag("distance.svg", class: "hike-icon") %>
+              <%= @hike.km %>km
+            </div>
+          <div class="show-description">
+            <p><strong>Description</strong></p>
+            <p><%= @hike.description.capitalize %></p>
+          </div>
         </div>
       </div>
     </div>
     <!-- /show-card-white -->
 
-  <div class="show-description">
-    <p><strong>Description</strong></p>
-    <p><%= @hike.description.capitalize %></p>
-  </div>
 
 
   <!-- All buttons -->
@@ -186,18 +190,7 @@
         </div>
       </div>
     </div>
-
 </div>
-<div class="container slide-show">
-  <div class="full hide-scroll">
-      <ul class="hss">
-      <h1> Photo Gallery </h1>
-      <% @pictures = Picture.where(hike_id: @hike.id) %>
-      <% @pictures.each do |picture| %>
-    <%= cl_image_tag picture.photo %>
-      <% end %>
-  </ul>
-  </div>
 
 
 
@@ -236,15 +229,15 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <div class="containers slide-show">
+  <div class="slide-show">
     <div class="full hide-scroll">
+      <ul class="hss targetDiv">
       <% if @hike.pictures.present? %>
-      <ul class="hss">
-        <h1> Photo Gallery </h1>
         <% @hike.pictures.each do |picture| %>
-        <!--   <img src="<%= picture.photo %>"> -->
-          <%= cl_image_tag picture.photo, class: "resize-picture" %>
-        <% end %>
+        <li class="items">
+          <%= cl_image_tag( picture.photo, width: 300, height: 350, class: "scroll-picture") %>
+          <% end %>
+        </li>
         <% end %>
       </ul>
     </div>
@@ -267,17 +260,14 @@
   </div>
 
 <script type="text/javascript">
-  const setGrids = (count) => {
-    const element = document.querySelector('.targetDiv');
-    console.log('loaded the view')
-    console.log(count)
-    console.log(element.style)
-    console.log("faasdfa")
-    console.log(element.style.gridTemplateColumns)
+  const setGrids = (count, element) => {
     element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
 
   }
-  window.onload = setGrids(<%= @hike.reviews.count %>);
+
+  const allTargetDivs = document.querySelectorAll('.targetDiv');
+  window.onload = setGrids(<%= @hike.reviews.count %>, allTargetDivs[0]);
+  window.onload = setGrids(<%= @hike.pictures.count %>, allTargetDivs[1]);
 </script>
 
 <script>
