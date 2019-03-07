@@ -75,22 +75,24 @@ hike = Hike.create!(
 )
 picture1 = Picture.new(
   hike: hike,
-  user: claireUser
+  user: claireUser,
+  description: "Test"
 )
 picture1.remote_photo_url = "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg"
 picture1.save!
 
 picture2 = Picture.new(
   hike: hike,
-  user: joeUser
+  user: joeUser,
+  description: "test2"
 )
 picture2.remote_photo_url = "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg"
 picture2.save!
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4501_copie.jpg",
-  name: "Mount Swan Lake",
-  city: "Grand Jardins National Park",
+  name: "Mont du Lac des Cygnes",
+  city: "Parc National des Grands-Jardins",
   category: "Intermediate",
   length: 300,
   km: 11.4,
@@ -98,10 +100,23 @@ Hike.create!(
   This 980-meter-high summit overlooking the Gouffre River Valley is one of the main attractions of the Grands-Jardins National Park."
 )
 
+
+Hike.create!(
+  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121149/hautes-gorges.jpg",
+  name: "L'Acropole des Draveurs",
+  city: "Hautes-Gorges-De- \nLa-Rivière-Malbaie",
+  category: "Advanced",
+  length: 300,
+  km: 10.4,
+  description: "An essential hike that leads to a breathtaking view over the Malbaie River.
+  If you are not too agoraphobic, climb this steep and rather busy trail.
+  800 meters in altitude in less than 3 km to the three peaks of 300 to 450m each."
+)
+
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4725-Modifier.jpg",
-  name: "The chouenne",
-  city: "Grand Jardins National Park",
+  name: "La Chouenne",
+  city: "Parc National des Grands-Jardins",
   category: "Intermediate",
   length: 120,
   km: 4.8,
@@ -111,42 +126,21 @@ Hike.create!(
 )
 
 Hike.create!(
-  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121149/hautes-gorges.jpg",
-  name: "The Acropolis of the Draveurs",
-  city: "Park of the high gorges of the Malbaie river",
-  category: "Advanced",
-  length: 320,
-  km: 10.4,
-  description: "An essential hike that leads to a breathtaking view over the Malbaie River.
-  If you are not too agoraphobic, climb this steep and rather busy trail.
-  800 meters in altitude in less than 3 km to the three peaks of 300 to 450m each."
-)
-
-Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121152/ura-druchuk-1144555-unsplash.jpg",
-  name: "Sentier de l’éperon",
-  city: "Jacques Cartier National Park",
+  name: "Sentier de l’Éperon",
+  city: "Jacques Cartier \nNational Park",
   category: "Intermediate",
-  length: 130,
+  length: 120,
   km: 5.4,
   description: "Rub shoulders with the meandering river to shoulder.
   Exceptional views on the landscape of the valley. Also discover the rich history of the park with 5 panels Discovery"
 )
 
-Hike.create!(
-  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_6715-2.jpg",
-  name: "Sentier des loups",
-  city: "Jacques Cartier National Park",
-  category: "Advanced",
-  length: 200,
-  km: 11,
-  description: "Breathtaking! See the most striking fractures massive Laurentians: the spectacular valleys of the Jacques Cartier and Sautauriski"
-)
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2377.jpg",
-  name: "The manitou",
-  city: "Mont Tremblant National Park",
+  name: "Le manitou",
+  city: "Mont-Tremblant \nNational Park",
   category: "Easy",
   length: 45,
   km: 0.6,
@@ -155,8 +149,8 @@ Hike.create!(
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2370.jpg",
-  name: "Hiking Soaring",
-  city: "Mont Tremblant National Park",
+  name: "Randonnée de l'envol",
+  city: "Mont-Tremblant \nNational Park",
   category: "Intermediate",
   length: 45,
   km: 6.7,
@@ -165,11 +159,21 @@ Hike.create!(
 )
 
 Hike.create!(
-  photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_5049-5.jpg",
-  name: "Hiking Centennial",
-  city: "Mont Tremblant  National Park",
+  photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_6715-2.jpg",
+  name: "Sentier des loups",
+  city: "Jacques Cartier \nNational Park",
   category: "Advanced",
-  length: 290,
+  length: 240,
+  km: 11,
+  description: "Breathtaking! See the most striking fractures massive Laurentians: the spectacular valleys of the Jacques Cartier and Sautauriski"
+)
+
+Hike.create!(
+  photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_5049-5.jpg",
+  name: "Randonnée du Centenaire",
+  city: "Mont-Tremblant \nNational Park",
+  category: "Advanced",
+  length: 300,
   km: 9.5,
   description: "Centennial Park Loop Trail is a 2.4 kilometer lightly trafficked loop trail located near Thunder Bay, Ontario, Canada that offers the chance to see wildlife.
   The trail is good for all skill levels and primarily used for hiking, walking, and mountain biking."
@@ -177,8 +181,8 @@ Hike.create!(
 
 Hike.create!(
   photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/jacalyn-beales-294154-unsplash.jpg",
-  name: "Mont Saint Joseph",
-  city: "Mount Megantic National Park",
+  name: "Mont Saint-Joseph",
+  city: "Mount Megantic \nNational Park",
   category: "Intermediate",
   length: 300,
   km: 9.4,
@@ -188,10 +192,10 @@ Hike.create!(
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_4392-2.jpg",
-  name: "The Mont Mégantic",
-  city: "Mount Megantic National Park",
+  name: "Le Mont Mégantic",
+  city: "Mount Megantic \nNational Park",
   category: "Intermediate",
-  length: 450,
+  length: 480,
   km: 10.7,
   description: "Mont Mégantic is a monadnock located in Québec, Canada, about 15 km north of the border between Québec and the U.S. states of Maine and New Hampshire.
   Mégantic is on the border of the regional county municipalities of Le Granit and Le Haut-Saint-François. Its summit is the highest point of the latter.
@@ -201,7 +205,7 @@ Hike.create!(
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121150/edward-koorey-767847-unsplash.jpg",
   name: "Sentier Les Caps",
-  city: "Saguenay Fjord National Park",
+  city: "Saguenay Fjord \nNational Park",
   category: "Advanced",
   length: 300,
   km: 10.2,
@@ -213,7 +217,7 @@ Hike.create!(
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2380.jpg",
   name: "Sentier des Chutes",
-  city: "Saguenay Fjord National Park",
+  city: "Saguenay Fjord \nNational Park",
   category: "Easy",
   length: 180,
   km: 5,
@@ -223,8 +227,8 @@ Hike.create!(
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121151/luc-tribolet-748526-unsplash.jpg",
-  name: "Calvaire d'Oka",
-  city: " Oka National Park",
+  name: "Le Calvaire d'Oka",
+  city: "Oka National Park",
   category: "Easy",
   length: 90,
   km: 4.4,
@@ -235,7 +239,7 @@ Hike.create!(
 Hike.create!(
   photo:"https://res.cloudinary.com/dimbka7de/image/upload/v1551121177/IMG_1435-2.jpg",
   name: "L'Étang Fer de Lance",
-  city: "Mount Orford National Park",
+  city: "Mount Orford \nNational Park",
   category: "Easy",
   length: 60,
   km: 3.5,

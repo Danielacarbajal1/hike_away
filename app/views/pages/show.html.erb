@@ -31,31 +31,28 @@
   </div>
 </div>
 
-<div class="container slide-show">
+<div class="slide-show">
   <div class="full hide-scroll">
-      <ul class="hss">
-      <h1> Photo Gallery </h1>
+      <ul class="hss targetDiv">
       <% @pictures_user.each do |picture| %>
-
-    <!--   <img src="<%= picture.photo %>"> -->
-    <%= cl_image_tag picture.photo, class: "resize-picture" %>
+      <li class="items">
+    <%= cl_image_tag(picture.photo, width: 300, height: 350, class: "scroll-picture") %>
+    <%= picture.description %>
       <% if picture.user_id == current_user.id %>
         <button type="button" class="btn btn-link"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, picture_path(picture_id: picture.id), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}  %></button>
         <% end %>
+      </li>
       <% end %>
   </ul>
   </div>
 </div>
 
 
-    <script type="text/javascript">
-
-  const setGrids = (count) => {
-    const element = document.querySelector('.targetDiv');
+<script type="text/javascript">
+  const setGrids = (count, element) => {
     element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
-
   }
-  window.onload = setGrids(<%= @favourites_user.count %>);
-
-
+  const allTargetDivs = document.querySelectorAll('.targetDiv');
+  window.onload = setGrids(<%= @favourites_user.count %>, allTargetDivs[0]);
+    window.onload = setGrids(<%= @pictures_user.count %>, allTargetDivs[1]);
 </script>
