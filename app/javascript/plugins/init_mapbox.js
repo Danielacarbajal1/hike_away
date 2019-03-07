@@ -25,7 +25,22 @@ const initMapbox = () => {
   element.style.backgroundSize = 'contain';
   element.style.width = '50px';
   element.style.height = '50px';
+const container = document.querySelector(".targetDiv");
+const hikeCard = document.querySelector("li.item");
 
+let previousCenteredHikeCardIndex = 0;
+
+container.addEventListener("scroll", () => {
+ const centerScreensScrollDistanceFromLeft = (container.scrollLeft + (hikeCard.clientWidth / 2));
+ const currentCenteredHikeCardIndex = Math.floor(centerScreensScrollDistanceFromLeft / hikeCard.clientWidth);
+
+ if (previousCenteredHikeCardIndex !== currentCenteredHikeCardIndex) {
+   previousCenteredHikeCardIndex = currentCenteredHikeCardIndex;
+   const correspondingMarker = markers[currentCenteredHikeCardIndex];
+   if (map.isMoving()) { map.stop(); }
+   map.flyTo({ center: [correspondingMarker.lng, correspondingMarker.lat], zoom: 6 });
+ }
+});
 
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // <-- add this
     new mapboxgl.Marker(element)
