@@ -1,0 +1,59 @@
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  margin-top: 60px;
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #cccccc;
+}
+
+.tab button:hover {
+    color: #EF7E56;
+  }
+
+/* Create an active/current tablink class */
+.tab button.active {
+  color: #EF7E56;
+  border-bottom: 2px solid #EF7E56;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+
+  border-top: 1px solid #ccc;
+
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.icon-div {
+  color: #A9A9A9;
+  margin-left: 18px;
+  width: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-btn:hover {
+    color: #EF7E56;
+  }

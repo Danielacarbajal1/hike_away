@@ -1,74 +1,64 @@
     <%= render 'shared/navbar' %>
 
 <div class="app-container">
-  <div class="row title-row">
-
-    <div class="box-blue"></div>
-    <div class="show-name"><%= @hike.name.capitalize %></div>
-
-
-  <div class="zoom">
-  <%= cl_image_tag(@hike.photo, crop: :fill, class: "show-photo") if @hike.photo.present? %>
+  <div class="hike-image" style= "background-image: url('<%=image_url(@hike.photo)%>');height: 60vh;background-size: cover;background-position: bottom; position: relative" >
   </div>
-  </div>
-  <main role="main">
-  <div class="content hidemee">
-  <div class="show-info">
-    <div class="show-category">
-      <p><%= @hike.city %></p>
-      <% if @hike.length < 60 %>
-      <%= @hike.length %> mins
-      <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
-      <p><%= @hike.length / 60 %> hrs</p>
-      <% else %>
-      <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
-      <% end %>
-      <p><%= @hike.km %>km</p>
-    </div>
-
-    <div id="show-icon" class="show-icon">
-      <% unless current_user.nil? %>
-      <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="show-description">
-    <p><%= @hike.description.capitalize %></p>
-  </div>
-
-
+    <div class="show-card-white">
+      <div class="content hidemeez">
+        <div class="show-info">
+          <div class="show-category">
+            <div id="show-icon" class="show-icon">
+              <% unless current_user.nil? %>
+                <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
+              <% end %>
+            </div>
+              <p><strong><%= @hike.name %></strong></p>
+              <h4><%= @hike.city %></h4>
+            </div>
+            <div class="row showrow">
+              <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
+                <div class="show-dude" 'text-center'>
+                  <%=image_tag("trekking.svg", class: "hike-icons") %>
+                  <p><%= @hike.category.capitalize %></p>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
+                <div class="show-length" 'text-center'>
+                    <%=image_tag("clock.svg", class: "hike-icons") %>
+                    <p><%= @hike.length %> hours</p>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
+                <div class="show-km" 'text-center'>
+                  <%=image_tag("distance.svg", class: "hike-icons") %>
+                  <p><%= @hike.km %>km</p>
+                </div>
+              </div>
+            </div>
+            <div class="show-description">
+              <p><strong>Description</strong></p>
+              <p><%= @hike.description %></p>
+            </div>
+          </div>
+        </div>
+      </div>
   <!-- All buttons -->
-  <div class="container-btns">
-    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal"><span style="margin-top: auto; margin-bottom: auto;">WHAT TO BRING?</span></button>
-    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
-  </div>
-
+      <div class="container-btns">
+        <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal"><span style="margin-top: auto; margin-bottom: auto;">WHAT TO BRING?</span></button>
+        <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
+      </div>
   <!-- START Content about Review form  -->
-  <div class="container">
-
+  <div class="containers">
     <!-- Modal -->
     <div class="modal fade" id="myModalReviews" role="dialog">
       <div class=modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
-
           <div class="modal-header">
             <% if current_user.present? %>
             <h1 class="modal-title">Add review</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-             <!--  <img class="review-avatar" src= >
-
-              <label data-error="wrong" data-success="right" for="defaultForm-review">Your name</label>
-              <input type="name" id="defaultForm-review" class="form-control validate">
-
-              <i class="far fa-comments"></i>
-              <label data-error="wrong" data-success="right" for="defaultForm-review">Your comment</label>
-              <input type="comment" id="defaultForm-review" class="form-control validate"> -->
-  <%= simple_form_for([@hike, @review]) do |f| %>
-
+            <%= simple_form_for([@hike, @review]) do |f| %>
               <div>
                 <img class="review-avatar" src= <%= current_user.photo %> >
                 <h1><strong><%= current_user.first_name.capitalize %></strong></h1>
@@ -116,6 +106,7 @@
               <div>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :description, class: "form-control" %>
               </div>
               <%= f.submit class: "btn btn-review" %>
               <% end %>
@@ -129,7 +120,7 @@
   <!-- END photo form -->
 
   <!-- START Content about what to bring ? -->
-  <div class="container">
+  <div class="containers">
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -155,7 +146,13 @@
                 <input type="checkbox" name="camera" value="Camera" id="camera"> CAMERA<br>
               </div>
               <div class="input">
-                <input type="checkbox" name="your_date" value="Your_date" id="date"> YOUR DATE<br>
+                <input type="checkbox" name="sunscreen" value="Sunscreen" id="sunscreen"> SUNSCREEN<br>
+              </div>
+              <div class="input">
+                <input type="checkbox" name="mosquitorepellent" value="mosquitorepellent" id="mosquitorepellent">MOSQUITO REPELLENT<br>
+              </div>
+              <div class="input">
+                <input type="checkbox" name="hat" value="Hat" id="hat">HAT<br>
               </div>
             </div>
 
@@ -168,8 +165,6 @@
       </div>
       <div class="alert" role="alert" id="result"></div>
     </div>
-
-    <div class="test-1">
 
       <!-- Modal -->
       <div class="modal fade" id="myDirections" role="dialog">
@@ -205,75 +200,89 @@
       </div>
     </div>
 </div>
-<div class="container slide-show">
-  <div class="full hide-scroll">
-      <ul class="hss">
-      <h1> Photo Gallery </h1>
-      <% @pictures = Picture.where(hike_id: @hike.id) %>
-      <% @pictures.each do |picture| %>
-    <%= cl_image_tag picture.photo %>
-      <% end %>
-  </ul>
-  </div>
+
+
+
+<!-- Tab links -->
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Reviews</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Photos</button>
 </div>
 
-<div class="slide-show">
-  <div class="full hide-scroll">
-    <h1>Reviews</h1>
-    <ul class="hss targetDiv">
-      <% @hike.reviews.each do |review| %>
-      <li class="items">
-        <div class="review-card">
-          <img class="review-avatar" src= <%= review.user.photo %> >
-          <h2> <%= review.user.first_name %></h2>
-          <h3><%= review.content %></h3>
-          <div class="rating-review">
-            <% review.stars.to_i.times do  %>
-            <span class="glyphicon glyphicon-star"></span>
-            <% end %>
-            <% review.blank_stars.to_i.times do %>
-            <span class="glyphicon glyphicon-star-empty"></span>
-            <% end %>
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+  <div class="slide-show">
+    <div class="full hide-scroll">
+      <ul class="hss targetDiv">
+        <% @hike.reviews.each do |review| %>
+        <li class="items">
+          <div class="review-card">
+            <img class="review-avatar" src= <%= review.user.photo %> >
+            <h2> <%= review.user.first_name %></h2>
+            <h3><%= review.content %></h3>
+            <div class="rating-review">
+              <% review.stars.to_i.times do  %>
+              <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+              <% review.blank_stars.to_i.times do %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+            </div>
           </div>
-        </div>
-
-      </li>
-      <% end %>
-    </ul>
-      </div>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
 
-<div class="review-btn">
-      <% if current_user.present? %>
-    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalReviews">ADD REVIEWS</button>
-    <% end %>
-</div>
-<div class="review-btn">
-      <% if current_user.present? %>
-    <button type="button" class="what-bring-btn-review" data-toggle="modal" data-target="#myModalPicture">ADD PHOTO</button>
-      <% end %>
+<div id="Paris" class="tabcontent">
+  <div class="slide-show">
+    <div class="full hide-scroll">
+      <ul class="hs targetDiv">
+      <% if @hike.pictures.present? %>
+        <% @hike.pictures.each do |picture| %>
+        <li class="items">
+          <div class="scroll-picture" style= "background-image: url('<%=image_url(picture.photo)%>');height: 45vh; width: 250px;background-size: cover; position: relative" >
+            <div class="avatar-background">
+          <%= cl_image_tag(picture.user.photo, width: 45, height: 45, crop: :thumb, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle": "dropdown") %>
+          <%= picture.user.first_name %>
+          </div>
+            <p><%= picture.description %></p>
+          </div>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 
+</div>
+<div class="icon-div">
+  <div class="review-btn">
+      <% if current_user.present? %>
+      <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#myModalReviews"></i>
+    <% end %>
   </div>
-</main>
+      <div class="review-btn">
+        <% if current_user.present? %>
+          <i class="fas fa-camera" data-toggle="modal" data-target="#myModalPicture"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 <script type="text/javascript">
-
-  const setGrids = (count) => {
-    const element = document.querySelector('.targetDiv');
-    console.log('loaded the view')
-    console.log(count)
-    console.log(element.style)
-    console.log("faasdfa")
-    console.log(element.style.gridTemplateColumns)
-    element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
+  const setGrids = (count, element) => {
+    element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutterhss) * 2)) 10px`;
 
   }
-  window.onload = setGrids(<%= @hike.reviews.count %>);
 
-
+  const allTargetDivs = document.querySelectorAll('.targetDiv');
+  window.onload = setGrids(<%= @hike.reviews.count %>, allTargetDivs[0]);
+  window.onload = setGrids(<%= @hike.pictures.count %>, allTargetDivs[1]);
 </script>
 
 <script>
@@ -325,8 +334,34 @@
       activateStars(0, "temp-active-star")
     })
   })
+
+
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+
 </script>
 
 <%= javascript_pack_tag "zoom" %>
 <%= javascript_pack_tag "fade" %>
 <%= javascript_pack_tag "checkbox" %>
+<%= javascript_pack_tag "tabs" %>
