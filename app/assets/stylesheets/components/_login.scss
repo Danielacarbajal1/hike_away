@@ -1,0 +1,65 @@
+
+.modal-content {
+  border-style: solid;
+  border-width: 20px;
+  border-color: #DED5C4;
+  width: 100vw;
+  margin: auto;
+  height:100vh;
+
+}
+
+.modal-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-login h2{
+  text-align: center;
+}
+
+.login_title {
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 35px;
+  margin-left: 0px;
+  border-bottom: solid 3px orange;
+  color: #1B4057;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  text-align: center;
+}
+
+.form-inputs{
+  margin-top: 55px;
+}
+
+.search-email {
+  background-color: transparent;
+  border-top: transparent !important;
+  border-left: transparent !important;
+  border-right: transparent !important;
+  margin-bottom: 25px;
+}
+
+
+.search-password {
+  background-color: transparent;
+  border-top: transparent !important;
+  border-left: transparent !important;
+  border-right: transparent !important;
+}
+
+.btn{
+  border-color: #1B4057;
+  color: orange;
+  background-color: white;
+  margin: 100px;
+}
