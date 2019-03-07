@@ -1,4 +1,9 @@
-    <%= render 'shared/navbar' %>
+
+<% content_for :meta_title, "#{@hike.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @hike.description %>
+<% content_for :meta_image, cl_image_path(@hike.photo.path) %>
+
+<%= render 'shared/navbar' %>
 
 <div class="app-container">
   <div class="row title-row">
