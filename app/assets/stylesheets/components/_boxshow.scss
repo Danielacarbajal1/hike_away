@@ -45,24 +45,24 @@ body {
 }
 
 .show-flaticon{
-  height: 20px;
+  height: 30px;
   font-weight: bold;
   padding-right: 10px;
 }
 
 .show-category {
-  font-family: 'Playfair Display', serif;
+  padding: 15px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  font-size: 18px;
+  font-size: 25px;
   color: #1B4057;
 }
 
-.show-info {
+.show-icon {
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
+  justify-content: flex-end;
 }
 
 .show-description {
@@ -72,11 +72,12 @@ body {
   line-height: normal;
   font-size: 20px;
   color: #333333;
-  margin-left: 28px;
-  margin-right: 28px;
+  margin-left: 15px;
+  margin-right: 15px;
   margin-top: 18px;
    text-align: justify;
   text-justify: inter-word;
+  margin-bottom: 15px;
 }
 
 .what-bring-btn {
@@ -138,3 +139,38 @@ body {
   width: 100%;
 }
 
+.hike-icons {
+  height: 45px;
+  position: relative;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.show-dude {
+    text-align:center;
+  display:block;
+  margin: 0 auto;
+}
+
+.showrow {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.showrow p {
+  color: #cccccc;
+  font-size: 15px;
+  text-align: center;
+}
+
+.hike-icons {
+  margin: 0 auto;
+}
+
+.centerrr {
+  display: flex;
+  justify-content: center;
+  line-height: 2.42857;
+}
