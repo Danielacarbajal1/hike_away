@@ -1,50 +1,58 @@
     <%= render 'shared/navbar' %>
 
 <div class="app-container">
-    <div class="hike-image" style= "background-image: url('<%=image_url(@hike.photo)%>');height: 60vh;background-size: cover;background-position: bottom; position: relative" >
-    </div>
-
+  <div class="hike-image" style= "background-image: url('<%=image_url(@hike.photo)%>');height: 60vh;background-size: cover;background-position: bottom; position: relative" >
+  </div>
     <div class="show-card-white">
-        <div class="content hidemeez">
-          <div class="show-info">
-            <div class="show-category">
-              <p><strong><%= @hike.name.capitalize %></strong></p>
-              <h4><%= @hike.city %></h4>
+      <div class="content hidemeez">
+        <div class="show-info">
+          <div class="show-category">
             <div id="show-icon" class="show-icon">
               <% unless current_user.nil? %>
                 <%= render 'favourites/form', hike: @hike, favourite: @favourite %>
               <% end %>
             </div>
-                <%=image_tag("trekking.svg", class: "hike-icon") %>
-                <%= @hike.category.capitalize %>
-              <% if @hike.length < 60 %>
-              <%= @hike.length %> mins
-              <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
-              <%=image_tag("clock.svg", class: "hike-icon") %>
-              <%= @hike.length / 60 %> hrs
-              <% else %>
-              <%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins
-              <% end %>
-              <%=image_tag("distance.svg", class: "hike-icon") %>
-              <%= @hike.km %>km
+              <p><strong><%= @hike.name %></strong></p>
+              <h4><%= @hike.city %></h4>
             </div>
-          <div class="show-description">
-            <p><strong>Description</strong></p>
-            <p><%= @hike.description.capitalize %></p>
+            <div class="row showrow">
+              <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
+                <div class="show-dude" 'text-center'>
+                  <%=image_tag("trekking.svg", class: "hike-icons") %>
+                  <p><%= @hike.category.capitalize %></p>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
+                <div class="show-length" 'text-center'>
+                  <% if @hike.length < 60 %>
+                    <p><%= @hike.length %> mins</p>
+                  <% elsif (@hike.length >= 60 && @hike.length % 60 == 0) %>
+                    <%=image_tag("clock.svg", class: "hike-icons") %>
+                    <p><%= @hike.length / 60 %> hrs</p>
+                  <% else %>
+                    <p><%=  @hike.length / 60 %> hrs and <%= @hike.length % 60 %> mins</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 centerrr">
+                <div class="show-km" 'text-center'>
+                  <%=image_tag("distance.svg", class: "hike-icons") %>
+                  <p><%= @hike.km %>km</p>
+                </div>
+              </div>
+            </div>
+            <div class="show-description">
+              <p><strong>Description</strong></p>
+              <p><%= @hike.description %></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- /show-card-white -->
-
-
-
   <!-- All buttons -->
-  <div class="container-btns">
-    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal"><span style="margin-top: auto; margin-bottom: auto;">WHAT TO BRING?</span></button>
-    <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
-  </div>
-
+      <div class="container-btns">
+        <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myModal"><span style="margin-top: auto; margin-bottom: auto;">WHAT TO BRING?</span></button>
+        <button type="button" class="what-bring-btn" data-toggle="modal" data-target="#myDirections">GET DIRECTIONS</button>
+      </div>
   <!-- START Content about Review form  -->
   <div class="containers">
     <!-- Modal -->
@@ -261,7 +269,7 @@
 
 <script type="text/javascript">
   const setGrids = (count, element) => {
-    element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutter) * 2)) 10px`;
+    element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutterhss) * 2)) 10px`;
 
   }
 
