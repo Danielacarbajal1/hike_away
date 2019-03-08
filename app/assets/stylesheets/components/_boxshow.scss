@@ -188,3 +188,9 @@ body {
 .modal-dialog{
   margin: 0px !important;
 }
+
+.center-modal-review {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -61,12 +61,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <% if current_user.present? %>
-            <h1 class="modal-title">Add review</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h1 class="modal-title" style="color: #1B4057"> How was your <span style="text-decoration: underline #EF7E56; color: #1B4057">experience?</span></h1>
             <%= simple_form_for([@hike, @review], remote: true) do |f| %>
-              <div>
+              <div class="center-modal-review">
                 <img class="review-avatar" src= <%= current_user.photo %> >
-                <h1><strong><%= current_user.first_name.capitalize %></strong></h1>
+                <h1 class="modal-title"><strong><%= current_user.first_name.capitalize %></strong></h1>
               </div>
 
               <div>
@@ -104,7 +104,7 @@
 
           <div class="modal-header">
             <% if current_user.present? %>
-            <h1 class="modal-title">Add Picture</h1>
+            <h1 class="modal-title">New publication</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
   <%= simple_form_for([@hike, @user, @picture], remote: true) do |f| %>
 
