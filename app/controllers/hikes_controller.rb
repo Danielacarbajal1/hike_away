@@ -15,6 +15,12 @@ class HikesController < ApplicationController
     elsif params[:city].present?
       @hikes = @hikes.near(params[:city], 250)
     end
+
+    session[:category] = params[:category] if params[:category].present?
+    session[:city]     = params[:city] if params[:city].present?
+    session[:distance] = params[:distance] if params[:distance].present?
+
+
     @markers = @hikes.map do |hike|
       {
         lat: hike.latitude,

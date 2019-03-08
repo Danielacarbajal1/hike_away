@@ -7,9 +7,9 @@
 
   <div id="search-index" class="search form-inline-hike">
     <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
-        <%= text_field_tag( :city, params[:city], class: "search-index hike-dropdown", placeholder: "City")%>
-        <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category]), {:include_blank => "Difficulty Level", class: "form-control form-dropdown hike-dropdown"}%>
-        <%= select_tag :distance, options_for_select([100, 150, 200, 250], params[:distance]), {:include_blank => "Distance", class: "form-control form-dropdown hike-dropdown"}%>
+        <%= text_field_tag( :city, params[:city] || session[:city], class: "search-index hike-dropdown", placeholder: "City")%>
+        <%= select_tag :category, options_for_select(["Easy", "Intermediate", "Advanced"], params[:category] || session[:category]), {:include_blank => "Difficulty Level", class: "form-control form-dropdown hike-dropdown"}%>
+        <%= select_tag :distance, options_for_select([100, 150, 200, 250], params[:distance] || session[:distance]), {:include_blank => "Distance", class: "form-control form-dropdown hike-dropdown"}%>
         <%= submit_tag( "Search" , class: "btn-index") %>
       <% end %>
   </div>
