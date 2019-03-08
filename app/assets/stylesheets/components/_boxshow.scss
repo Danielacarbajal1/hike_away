@@ -192,5 +192,22 @@ body {
 .center-modal-review {
   margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  align-items: center;
+}
+.form-group.string.required.review_content {
+  text-align: left !important;
+}
+
+.form-group.string.optional.picture_description {
+    text-align: left !important;
+}
+
+.file.optional {
+    text-align: left !important;
+}
+
+.form-control.string.optional {
+  margin-bottom: 5px !important;
+    width: 349px !important;
 }

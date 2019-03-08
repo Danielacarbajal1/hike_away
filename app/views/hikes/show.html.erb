@@ -62,29 +62,26 @@
           <div class="modal-header">
             <% if current_user.present? %>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h1 class="modal-title" style="color: #1B4057"> How was your <span style="text-decoration: underline #EF7E56; color: #1B4057">experience?</span></h1>
+            <h1 class="modal-title" style="color: #1B4057; margin-bottom: 0"> How was your <span style="text-decoration: underline #EF7E56; color: #1B4057">experience?</span></h1>
             <%= simple_form_for([@hike, @review], remote: true) do |f| %>
               <div class="center-modal-review">
                 <img class="review-avatar" src= <%= current_user.photo %> >
-                <h1 class="modal-title"><strong><%= current_user.first_name.capitalize %></strong></h1>
+                <h1 class="modal-title" style="color:#1B4057"><strong><%= current_user.first_name.capitalize %></strong></h1>
               </div>
-
-              <div>
                  <%= f.input :content, class: "commentinput"%>
                  <%= f.input :stars, input_html: { class: "hidden" }, label: false %>
-              </div>
 
-              <br>
-              <br>
+              <div>
+              </div>
                 <ul class="rating">
-                  <li class="star" value="1" id="star1"><i class="fas fa-star"></i></li>
-                   <li class="star" value="2" id="star2"><i class="fas fa-star"></i></li>
-                   <li class="star" value="3" id="star3"><i class="fas fa-star"></i></li>
-                   <li class="star" value="4" id="star4"><i class="fas fa-star"></i></li>
-                   <li class="star" value="5" id="star5"><i class="fas fa-star"></i></li>
+                  <li class="star" value="1" id="star1" style="color:grey"><i class="fas fa-star"></i></li>
+                   <li class="star" value="2" id="star2" style="color:grey"><i class="fas fa-star"></i></li>
+                   <li class="star" value="3" id="star3" style="color:grey"><i class="fas fa-star"></i></li>
+                   <li class="star" value="4" id="star4" style="color:grey"><i class="fas fa-star"></i></li>
+                   <li class="star" value="5" id="star5" style="color:grey"><i class="fas fa-star"></i></li>
                 </ul>
               <br>
-              <%= f.submit class: "btn btn-review" %>
+              <%= f.submit class: "btn-index" %>
               <% end %>
             <% end %>
             </div>
@@ -104,8 +101,8 @@
 
           <div class="modal-header">
             <% if current_user.present? %>
-            <h1 class="modal-title">New publication</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h1 class="modal-title" style="color: #1B4057">New <span style="text-decoration: underline #EF7E56; color: #1B4057">publication </span></h1>
   <%= simple_form_for([@hike, @user, @picture], remote: true) do |f| %>
 
               <div>
@@ -113,7 +110,7 @@
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.input :description, class: "form-control" %>
               </div>
-              <%= f.submit class: "btn btn-review" %>
+              <%= f.submit class: "btn-index" %>
               <% end %>
             <% end %>
             </div>
