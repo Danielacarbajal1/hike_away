@@ -1,0 +1,96 @@
+console.log("hello world")
+
+function refreshShow(innerHTML) {
+  document.getElementById('master-hike-container').innerHTML = innerHTML
+}
+
+document.querySelector('.close').click();
+
+refreshShow("<%= j render 'hikes/refresh_show' %>")
+
+
+
+  // const setGrids = (count, element) => {
+  //   element.style.gridTemplateColumns = `10px repeat(${count}, calc(100% - var(--gutterhss) * 2)) 10px`;
+
+  // }
+
+  window.onload = setGrids(<%= @hike.reviews.count %>, document.querySelectorAll('.targetDiv')[0]);
+  window.onload = setGrids(<%= @hike.pictures.count %>, document.querySelectorAll('.targetDiv')[1]);
+
+
+
+  function activateStars(index, classname){
+    // console.log("clicked a star");
+      // console.log(index)
+
+
+    // console.log(stars);
+    // const activeStars = Array.prototype.slice.call(stars).slice(0, index);
+    // console.log(activeStars)
+    document.querySelectorAll(".star").forEach((star, i) => {
+      // console.log(star);
+
+      star.classList.remove(classname)
+      if (i < index) {
+      // console.log("adding active star class")
+      // console.log(i)
+        star.classList.add(classname)
+      }
+    })
+    if (classname === "active-star") {
+    document.getElementById("review_stars").value = index;
+
+    }
+  }
+
+  document.querySelectorAll(".star").forEach((star) => {
+
+    star.addEventListener("click", (e) =>{
+
+      // console.log(e.currentTarget)
+
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(index.value, "active-star")
+
+    })
+    star.addEventListener("mouseenter", (e) => {
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(index.value, "temp-active-star")
+    })
+    star.addEventListener("mouseleave", (e) => {
+      const index = e.currentTarget.attributes["value"]
+      // console.log(index)
+
+      activateStars(0, "temp-active-star")
+    })
+  })
+
+
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+

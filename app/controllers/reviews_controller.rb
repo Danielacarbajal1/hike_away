@@ -10,7 +10,15 @@ class ReviewsController < ApplicationController
     @review.hike = Hike.find(params[:hike_id])
     @review.user = current_user
     if @review.save!
-      redirect_to hike_path(@review.hike)
+      # binding.pry
+      @hike = @review.hike
+      @review = Review.new
+      @picture = Picture.new
+      @favourite = Favourite.new
+      respond_to do |format|
+        format.html { redirect_to hike_path(@review.hike) }
+        format.js
+      end
     else
       render :new
     end
