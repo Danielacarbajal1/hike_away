@@ -23,25 +23,26 @@
 
 
 .btn-index {
-  border-radius: 10px;
+  border-radius: 8px;
   color: #1B4057;
   border-style: solid;
   border-color: #1B4057;
   border-width: 2px;
-  font-family: Playfair Display;
+  font-family: $accent-font;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
   line-height: normal;
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
-  width: 118px;
-  height: 36px;
+  width: 100%;
   background-color: transparent;
   margin-bottom: 20px;
   margin-top: 15px;
   align-items: center;
   justify-content: center;
   display: flex;
+  padding: 10px;
+  letter-spacing: 1px;
 }
 
 .btn-index:hover {
@@ -52,7 +53,15 @@
 .search {
   display: flex;
   justify-content: left;
+}
+
+#search-index {
   margin-left: 28px;
+
+  input[type="text"] {
+  padding: 18px;
+  color: #9A9A9A;
+  }
 }
 
 .bouton-index {
@@ -75,4 +84,13 @@ margin-left: 10px
 .form-dropdown {
   background: #DED5C4 !important;
   opacity: 0.5 !important;
+}
+
+select.hike-dropdown, input.hike-dropdown  {
+  background: none !important;
+  border: none !important;
+  border-bottom: 2px solid #1B4057 !important;
+  color: #9A9A9A;
+  opacity: 1 !important;
+  box-shadow: none !important;
 }

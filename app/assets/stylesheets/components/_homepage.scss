@@ -41,23 +41,23 @@
 }
 
 .explore-btn-home {
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 10px;
   color: #1B4057;
   border-style: solid;
   border-color: #1B4057;
   border-width: 2px;
-  font-family: Playfair Display;
+  font-family: $accent-font;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
   line-height: normal;
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
-  width: 118px;
-  height: 42px;
+  width: 75%;
   background-color: transparent;
   margin-top: 30px;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .explore-btn-home:hover {
@@ -100,5 +100,15 @@ input:focus {
   margin-top: 20px;
   display: flex;
   justify-content: center;
+}
+
+#home-form {
+  form{
+    width: 100%;
+  }
+
+  input#city {
+  width: 80%;
+  }
 }
 
