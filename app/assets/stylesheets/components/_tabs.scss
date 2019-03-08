@@ -3,7 +3,8 @@
   overflow: hidden;
   border-bottom: 1px solid #ccc;
   margin-top: 60px;
-
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -32,8 +33,6 @@
 .tabcontent {
   display: none;
 
-  border-top: 1px solid #ccc;
-
 }
 
 .tabcontent {
@@ -57,3 +56,7 @@
 .review-btn:hover {
     color: #EF7E56;
   }
+
+.tab-container {
+  padding: 23px;
+}
