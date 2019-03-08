@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 25px;
+  margin-bottom: 30px;
 }
 
 body {
@@ -90,7 +90,7 @@ body {
 .what-bring-btn {
   color: #1B4057;
   border-style: solid;
-  border-color: #8c97a3;
+  border-color: #c4cbd1;
   border-radius: 10px;
   border-width: 2px;
   font-family: Playfair Display;
@@ -103,7 +103,8 @@ body {
   background-color: transparent;
   padding: 9px;
   letter-spacing: 0.7px;
-
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .what-bring-btn:hover {
