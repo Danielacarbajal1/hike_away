@@ -198,7 +198,7 @@ goodhike = Hike.new(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4725-Modifier.jpg",
   name: "La Chouenne",
   city: "Parc National des Grands-Jardins",
-  category: "Easy",
+  category: "Intermediate",
   length: 2,
   km: 4.8,
   description: "Trail giving access to a summit of 730 m of altitude.
@@ -219,15 +219,16 @@ Hike.create!(
 )
 
 
-Hike.create!(
+okhike = Hike.new(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2377.jpg",
   name: "Le manitou",
   city: "Mont-Tremblant \nNational Park",
-  category: "Intermediate",
+  category: "Easy",
   length: 1,
   km: 0.6,
   description: "Trail for all skill levels Spectacular view from 360°Observation Tower"
 )
+okhike.save!
 
 Hike.create!(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_2370.jpg",
@@ -244,7 +245,7 @@ badhike = Hike.new(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121179/IMG_6715-2.jpg",
   name: "Sentier des loups",
   city: "Jacques Cartier \nNational Park",
-  category: "Easy",
+  category: "Intermediate",
   length: 4,
   km: 11,
   description: "Breathtaking! See the most striking fractures massive Laurentians: the spectacular valleys of the Jacques Cartier and Sautauriski"
@@ -383,6 +384,14 @@ reviews_content1 = [
   "Do not go!"
 ]
 
+reviews_content3 = [
+  "Not bad",
+  "Ok",
+  "The views were nice, but the path could've been more challenging",
+  "A little bit too easy",
+  "Not that challenging, but still a nice hike"
+]
+
 5.times do
  reviewgood = Review.new(
     stars: 5,
@@ -401,6 +410,16 @@ reviewnice = Review.new(
   )
 reviewnice.hike = goodhike
 reviewnice.save!
+end
+
+3.times do
+  reviewok = Review.new(
+    stars: 3,
+    content: reviews_content3[rand(0..4)],
+    user_id: User.order("RANDOM()").first.id
+  )
+  reviewok.hike = okhike
+  reviewok.save!
 
 end
 

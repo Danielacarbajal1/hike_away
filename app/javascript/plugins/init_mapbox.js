@@ -25,6 +25,7 @@ const initMapbox = () => {
   element.style.backgroundSize = 'contain';
   element.style.width = '50px';
   element.style.height = '50px';
+  element.style.borderRadius = "50%";
 const container = document.querySelector(".targetDiv");
 const hikeCard = document.querySelector("li.item");
 
