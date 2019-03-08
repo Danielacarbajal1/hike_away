@@ -2,7 +2,7 @@
 .tab {
   overflow: hidden;
   border-bottom: 1px solid #ccc;
-  margin-top: 60px;
+  margin-top: 75px;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -46,11 +46,14 @@
 }
 
 .icon-div {
-  color: #A9A9A9;
-  margin-left: 18px;
-  width: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+      bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    align-items: center;
+    background-color: #ec885a;
 }
 
 .review-btn:hover {
@@ -59,4 +62,18 @@
 
 .tab-container {
   padding: 23px;
+}
+
+.review-btn {
+  color: #A9A9A9;
+    width: 100%;
+    /* background-color: #21415c; */
+    text-align: center;
+    /* height: 40px; */
+    color: white;
+    font-size: 30px;
+}
+
+.btn-left-show {
+      border-left: 1px solid white;
 }
