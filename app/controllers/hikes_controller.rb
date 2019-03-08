@@ -3,22 +3,23 @@ class HikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @favourite = Favourite.new
-    @hikes = Hike.where.not(latitude: nil, longitude: nil)
-    if params[:query].present?
-      hike_query = "name ILIKE :query OR description ILIKE :query"
-      @hikes = Hike.where(hike_query, query: "%#{params[:query]}%")
-    end
-    @hikes = @hikes.where("category ILIKE :category", category: "%#{params[:category]}%") if params[:category].present?
-    if params[:city].present? && params[:distance].present?
-      @hikes = @hikes.near(params[:city], params[:distance].to_i.positive? ? params[:distance].to_i : 0)
-    elsif params[:city].present?
-      @hikes = @hikes.near(params[:city], 250)
-    end
-
     session[:category] = params[:category] if params[:category].present?
     session[:city]     = params[:city] if params[:city].present?
     session[:distance] = params[:distance] if params[:distance].present?
+
+    @favourite = Favourite.new
+    @hikes = Hike.where.not(latitude: nil, longitude: nil)
+    if session[:query].present?
+      hike_query = "name ILIKE :query OR description ILIKE :query"
+      @hikes = Hike.where(hike_query, query: "%#{session[:query]}%")
+    end
+    @hikes = @hikes.where("category ILIKE :category", category: "%#{session[:category]}%") if session[:category].present?
+    if session[:city].present? && session[:distance].present?
+      @hikes = @hikes.near(session[:city], session[:distance].to_i.positive? ? session[:distance].to_i : 0)
+    elsif session[:city].present?
+      @hikes = @hikes.near(session[:city], 250)
+    end
+
 
 
     @markers = @hikes.map do |hike|
