@@ -14,7 +14,7 @@
 
 <div class="container scroll-review">
   <div class="full hide-scroll">
-    <h1>Upcoming hikes</h1>
+    <h1 style="text-decoration: underline #EF7E56" >Upcoming hikes</h1>
     <ul class="hsss targetDiv">
       <% @favourites_user.each do |favourite| %>
     <li class="item">
@@ -33,9 +33,10 @@
 
 <div class="slide-show">
   <div class="full hide-scroll">
+    <h2 style="text-decoration: underline #EF7E56">Previous hikes</h2>
       <ul class="hss targetDiv">
       <% @pictures_user.order("id DESC").each do |picture| %>
-      <li class="items">
+      <li class="item">
       <div class="scroll-pictures" style= "background-image: url('<%=image_url(picture.photo)%>');height: 45vh; width: 250px;background-size: cover; position: relative" >
         <div class="profile-pictures">
         <h6><%= picture.hike.name %></h6>
@@ -45,7 +46,7 @@
         <h5><%= picture.description %></h5>
         <h6><%= picture.created_at.strftime("%B %d, %Y") %></h6>
         </div>
-        <div>
+        <div class="trash">
       <% if picture.user_id == current_user.id %>
         <button type="button" class="btn btn-link trash-btn"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, picture_path(picture_id: picture.id), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}  %></button>
         </div>

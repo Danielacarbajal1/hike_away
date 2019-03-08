@@ -1,11 +1,8 @@
 .banner-home {
   background-image: url('https://images.unsplash.com/photo-1486068720048-47715511ce71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
   height: 503px;
-  left: 0px;
-  top: -88px;
-  background-position-x: -180px;
-  background-position-y: -81px;
-  background-size: 876px;
+    background-size: cover;
+    background-position: center;
 }
 
 .banner-home h1 {
@@ -45,7 +42,7 @@
   padding: 10px;
   color: #1B4057;
   border-style: solid;
-  border-color: #1B4057;
+  border-color: #859097;
   border-width: 2px;
   font-family: $accent-font;
   font-style: normal;
