@@ -220,7 +220,7 @@
   <div class="slide-show">
     <div class="full hide-scroll">
       <ul class="hss targetDiv">
-        <% @hike.reviews.each do |review| %>
+        <% @hike.reviews.order("id DESC").each do |review| %>
         <li class="items">
           <div class="review-card">
             <img class="review-avatar" src= <%= review.user.photo %> >
@@ -247,7 +247,7 @@
     <div class="full hide-scroll">
       <ul class="hs targetDiv">
       <% if @hike.pictures.present? %>
-        <% @hike.pictures.each do |picture| %>
+        <% @hike.pictures.order("id DESC").each do |picture| %>
         <li class="items">
           <div class="scroll-picture" style= "background-image: url('<%=image_url(picture.photo)%>');height: 45vh; width: 250px;background-size: cover; position: relative" >
             <div class="avatar-background">
