@@ -6,7 +6,7 @@
 <%= render 'shared/navbar' %>
 
 <div class="app-container">
-  <div class="hike-image" style= "background-image: url('<%=image_url(@hike.photo)%>');height: 60vh;background-size: cover;background-position: bottom; position: relative" >
+  <div class="hike-image" style= "background-image: url('<%=image_url(@hike.photo)%>');height: 55vh;background-size: cover;background-position: bottom; position: relative" >
   </div>
     <div class="show-card-white">
       <div class="content hidemeez">
@@ -136,7 +136,7 @@
 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h1 class="modal-title">What to bring:</h1>
+            <h1 class="modal-title">Make sure you're <span style="text-decoration: underline #EF7E56">ready </span >for your hike!</h1>
             <div class="what-to-bring">
               <div class="input">
                 <input type="checkbox" name="shoes" value="Shoes" id="shoes"> SHOES<br>
@@ -178,7 +178,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h1 class="modal-title">Get Directions</h1>
+              <h1 class="modal-title" style="text-decoration: underline #EF7E56">Don't get lost!</h1>
             </div>
             <div class="modal-body">
               <iframe
@@ -214,13 +214,12 @@
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Reviews</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Photos</button>
 </div>
-
 <!-- Tab content -->
 <div id="London" class="tabcontent">
   <div class="slide-show">
     <div class="full hide-scroll">
       <ul class="hss targetDiv">
-        <% @hike.reviews.each do |review| %>
+        <% @hike.reviews.order("id DESC").each do |review| %>
         <li class="items">
           <div class="review-card">
             <img class="review-avatar" src= <%= review.user.photo %> >
@@ -247,7 +246,7 @@
     <div class="full hide-scroll">
       <ul class="hs targetDiv">
       <% if @hike.pictures.present? %>
-        <% @hike.pictures.each do |picture| %>
+        <% @hike.pictures.order("id DESC").each do |picture| %>
         <li class="items">
           <div class="scroll-picture" style= "background-image: url('<%=image_url(picture.photo)%>');height: 45vh; width: 250px;background-size: cover; position: relative" >
             <div class="avatar-background">
@@ -263,7 +262,7 @@
     </div>
   </div>
 </div>
-
+</div>
 </div>
 <div class="icon-div">
   <div class="review-btn">
@@ -277,7 +276,7 @@
         <% end %>
       </div>
     </div>
-  </div>
+
 
 <script type="text/javascript">
   const setGrids = (count, element) => {

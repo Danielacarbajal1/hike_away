@@ -70,3 +70,11 @@ li {
   display:flex;
   justify-content: space-between;
 }
+
+.full.hide-scroll h1 {
+  font-size: 22px;
+  margin-left: 0;
+  .underline {
+    text-decoration: underline #EF7E56;
+  }
+}

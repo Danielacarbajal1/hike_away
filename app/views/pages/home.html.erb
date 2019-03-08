@@ -5,7 +5,7 @@
   <h2 class="hideme">YOUR MOUNTAIN GUIDE</h2>
 </div>
 
-  <div class="search form-inline">
+  <div id="home-form" class="search form-inline">
     <%= form_tag hikes_path, method: :get, autocomplete: "off" do %>
     <%=image_tag("location.svg", class: "location-icon") %>
     <%= text_field_tag( :city, params[:city], class: "search-home", placeholder: "City")%>

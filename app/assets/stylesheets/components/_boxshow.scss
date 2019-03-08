@@ -58,6 +58,12 @@ body {
   line-height: normal;
   font-size: 25px;
   color: #1B4057;
+  h4 {
+    font-size: 22px;
+  }
+  p {
+  text-decoration: underline #EF7E56;
+  }
 }
 
 .show-icon {
@@ -78,6 +84,7 @@ body {
    text-align: justify;
   text-justify: inter-word;
   margin-bottom: 15px;
+  padding: 7px;
 }
 
 .what-bring-btn {
@@ -92,9 +99,11 @@ body {
   line-height: normal;
   font-size: 12px;
   text-align: center;
-  width: 125px;
-  height: 42px;
+  width: 47%;
   background-color: transparent;
+  padding: 9px;
+  letter-spacing: 0.7px;
+
 }
 
 .what-bring-btn:hover {
@@ -173,4 +182,8 @@ body {
   display: flex;
   justify-content: center;
   line-height: 2.42857;
+}
+
+.modal-dialog{
+  margin: 0px !important;
 }
