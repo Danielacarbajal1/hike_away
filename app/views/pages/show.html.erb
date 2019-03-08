@@ -16,7 +16,7 @@
   <div class="full hide-scroll">
     <h1 style="text-decoration: underline #EF7E56" >Upcoming hikes</h1>
     <ul class="hsss targetDiv">
-      <% @favourites_user.each do |favourite| %>
+      <% @favourites_user.order("id DESC").each do |favourite| %>
     <li class="item">
         <%= link_to(hike_path(favourite.hike.id)) do %>
         <% if favourite.hike.photo.present? %>
