@@ -100,7 +100,7 @@
             <% if current_user.present? %>
             <h1 class="modal-title">Add Picture</h1>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-  <%= simple_form_for([@hike, @user, @picture]) do |f| %>
+  <%= simple_form_for([@hike, @user, @picture], remote: true) do |f| %>
 
               <div>
         <%= f.input :photo %>
