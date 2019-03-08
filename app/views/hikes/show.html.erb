@@ -65,7 +65,7 @@
             <h1 class="modal-title" style="color: #1B4057; margin-bottom: 0"> How was your <span style="text-decoration: underline #EF7E56; color: #1B4057">experience?</span></h1>
             <%= simple_form_for([@hike, @review], remote: true) do |f| %>
               <div class="center-modal-review">
-                <img class="review-avatar" src= <%= current_user.photo %> >
+                <%= cl_image_tag(current_user.photo, width: 45, height: 45, crop: :thumb,  class: "review-avatar") %>
                 <h1 class="modal-title" style="color:#1B4057"><strong><%= current_user.first_name.capitalize %></strong></h1>
               </div>
                  <%= f.input :content, class: "commentinput"%>
@@ -74,11 +74,11 @@
               <div>
               </div>
                 <ul class="rating">
-                  <li class="star" value="1" id="star1" style="color:grey"><i class="fas fa-star"></i></li>
-                   <li class="star" value="2" id="star2" style="color:grey"><i class="fas fa-star"></i></li>
-                   <li class="star" value="3" id="star3" style="color:grey"><i class="fas fa-star"></i></li>
-                   <li class="star" value="4" id="star4" style="color:grey"><i class="fas fa-star"></i></li>
-                   <li class="star" value="5" id="star5" style="color:grey"><i class="fas fa-star"></i></li>
+                  <li class="star" value="1" id="star1" ><i class="fas fa-star"></i></li>
+                   <li class="star" value="2" id="star2" ><i class="fas fa-star"></i></li>
+                   <li class="star" value="3" id="star3" ><i class="fas fa-star"></i></li>
+                   <li class="star" value="4" id="star4" ><i class="fas fa-star"></i></li>
+                   <li class="star" value="5" id="star5" ><i class="fas fa-star"></i></li>
                 </ul>
               <br>
               <%= f.submit class: "btn-index" %>
@@ -219,7 +219,7 @@
         <% @hike.reviews.order("id DESC").each do |review| %>
         <li class="items">
           <div class="review-card">
-            <img class="review-avatar" src= <%= review.user.photo %> >
+             <%= cl_image_tag(review.user.photo, width: 45, height: 45, crop: :thumb,  class: "review-avatar") %>
             <h2> <%= review.user.first_name %></h2>
             <h3><%= review.content %></h3>
             <div class="rating-review">
@@ -284,9 +284,7 @@
   const allTargetDivs = document.querySelectorAll('.targetDiv');
   window.onload = setGrids(<%= @hike.reviews.count %>, allTargetDivs[0]);
   window.onload = setGrids(<%= @hike.pictures.count %>, allTargetDivs[1]);
-</script>
 
-<script>
   function activateStars(index, classname){
     // console.log("clicked a star");
       // console.log(index)
@@ -300,9 +298,9 @@
 
       star.classList.remove(classname)
       if (i < index) {
-      // console.log("adding active star class")
-      // console.log(i)
-        star.classList.add(classname)
+      //console.log("adding active star class")
+      //console.log(i)
+        star.classList.toggle(classname)
       }
     })
     if (classname === "active-star") {
@@ -313,11 +311,10 @@
   const stars = document.querySelectorAll(".star");
   stars.forEach((star) => {
     star.addEventListener("click", (e) =>{
-
       // console.log(e.currentTarget)
 
       const index = e.currentTarget.attributes["value"]
-      // console.log(index)
+      //console.log(index)
 
       activateStars(index.value, "active-star")
 
@@ -336,29 +333,28 @@
     })
   })
 
+  function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
 
-function openCity(evt, cityName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
   }
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-document.getElementById("defaultOpen").click();
+  document.getElementById("defaultOpen").click();
 
 </script>
 
