@@ -197,7 +197,7 @@ Hike.create!(
 goodhike = Hike.new(
   photo: "https://res.cloudinary.com/dimbka7de/image/upload/v1551121178/IMG_4725-Modifier.jpg",
   name: "La Chouenne",
-  city: "Parc National des Grands-Jardins",
+  city: "Mount Orford \nNational Park",
   category: "Intermediate",
   length: 2,
   km: 4.8,
